@@ -1,0 +1,70 @@
+
+\vspace*{1cm}
+\supplementarysection
+
+\input{tables/chapter_4/table_modelspec}
+\input{tables/chapter_4/table_hypothesis}
+
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_neighbourhood_sampling.pdf}
+    \mycaption{Absence of bias in the sampling of neighbourhood properties}{
+        Correlation between the actual neighbourhood properties and neighbourhood properties estimated from birds for which we have song recordings.
+    (A) Neighbourhood size (number of individuals) and number of individuals with song recordings.
+    (B) Proportion of resident birds from monitoring data and only those birds with song recordings.
+    (C) Mean dispersal distance calculated from birds born in the study site and only those birds born in the study site with song recordings.
+    (D) Mean age of birds in the study site and only those birds with song recordings.
+    }
+    \label{fig:supp_neighbourhood_sampling}
+\end{figure}
+
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_song_sampling.pdf}
+    \mycaption{Relationships among outcome variables and sampling effects}{
+        (A) Marginal effect of diversity---which describes the proportion of unique songs in a neighbourhood---on novelty, that is, how uncommon, on average, the songs of the birds in a neighbourhood are. These two ways of characterising cultural diversity are (as expected) anti-correlated in our study site due to the effect of sampling: more frequent songs are sampled more readily, causing larger sample sizes (neighbourhoods with more birds and therefore songs) to yield lower average estimates of diversity (C) and higher average estimates of novelty (D), in a nonlinear manner. Once this is adjusted for, diversity and novelty are positively correlated, as expected. (B) Our measure of cultural novelty (y-axis) has the advantages of being continuous and not using an arbitrary cutoff, but is nonetheless correlated with definitions traditionally used in the literature, such as “songs shared by fewer than 4 birds” \parencite{mcgregor1982b}}
+    \label{fig:supp_song_sampling}
+\end{figure}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_acoustic_distance_threshold.pdf}
+    \mycaption{Thresholds used during the process of reidentifying individual birds based on their songs}{
+        (A) Shows the distribution of the acoustic distances between the same song type sung by the same known bird in different years, in orange, and the minimum pairwise distance between different birds and years. The x-intercept of the vertical line = 0.9. (B) Shows the distribution of the change in distance from the natal nest box to the breeding site in different years for birds that bred more than once. Adult birds have high nest site fidelity, which we used as a further constraint when reidentifying them from their songs.}
+    \label{fig:supp_acoustic_distance_threshold}
+\end{figure}
+
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_song_frequencies.pdf}
+    \mycaption{
+        Song frequencies and their relationship with abundance in the following year}{
+        (A) The abundance of a song type in a given year predicts its abundance in the following year, with higher variance around rare songs. (B) Histogram showing the frequency of individual spong types in the study.
+    }
+    \label{fig:supp_song_frequencies}
+\end{figure}
+
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_absolute_cultural_diversity.pdf}
+    \mycaption{Marginal effects of demographic variables on absolute cultural diversity}{
+        Marginal effects of our predictor variables on absolute cultural diversity (the number of different song types sampled in a neighbourhood), while adjusting for the effect of either number of individuals (higher opacity fill, corresponding to model \textit{div\_m\_2}) or number of song variants, including repeated variants (lower opacity fill, \textit{div\_m\_2.1}). 
+    }
+    \label{fig:supp_absolute_cultural_diversity}
+\end{figure}
+
+
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_pp_checks.pdf}
+    \mycaption{
+        Posterior predictive checks for the main models in the study}{Comparing simulations from the posterior predictive distribution $y^{rep}$ (thin orange lines) with the outcome $y$ (black lines) using Kernel density estimates. The posterior predictive distribution is a distribution of possible outcomes of the model given the data and the model parameters, here used to check the fit of the model to the data.
+    }
+    \label{fig:supp_pp_checks}
+\end{figure}
+

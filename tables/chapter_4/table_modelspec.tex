@@ -1,0 +1,49 @@
+\begin{longtblr}[
+  theme=ntabs,
+  caption = {Model information}, % Table caption
+  label = {table:model_info} % Label for cross-referencing
+  % note{a} = {Continued from previous page}, % Note for continued header
+  % note{b} = {Continued on next page}, % Note for continued footer
+]{
+  colspec = {X[l] X[6,l] X[l] X[l] X[l]}, % Define column specification
+  column{1}={colsep=15pt},
+  rowhead=1,
+  row{odd} = {tablegrey}, % Shading for odd rows
+  cells = {font = \fontsize{8pt}{8pt}\selectfont},
+  rowsep=2pt,
+  row{1} = {tableheadgrey, font=\fontsize{8pt}{8pt}\selectfont\bfseries} % First row is bold
+}
+
+Model & Formula & Family & N & Groups \\
+
+\addlinespace
+\SetCell[c=5]{c, white}\textbf{Individual Repertoires} \\
+
+% Individual Repertoires
+rep\_m\_1 & repertoire\_size $\sim$ 1 + immigrant + s(sampling\_effort) + year + (1 | father) & cratio & 301 & 242 \\
+rep\_m\_1.1 & repertoire\_size $\sim$ 1 + dispersal\_distance + s(sampling\_effort) + year + (1 | father) & cratio & 133 & 105 \\
+rep\_m\_1.2 & repertoire\_size $\sim$ 1 + age + s(sampling\_effort) + year + (1 | father) & cratio & 256 & 205 \\
+repnov\_m\_1 & average\_frequency $\sim$ 1 + immigrant + s(sampling\_effort) + year + (1 | father) & lognormal & 300 & 242 \\
+repnov\_m\_1.1 & average\_frequency $\sim$ 1 + dispersal\_distance + s(sampling\_effort) + year + (1 | father) & lognormal & 133 & 105 \\
+repnov\_m\_1.2 & average\_frequency $\sim$ 1 + age + s(sampling\_effort) + year + (1 | father) & lognormal & 256 & 205 \\
+
+% Cultural Similarity
+\SetCell[c=5]{c, white}\textbf{Cultural Similarity} \\
+disp\_m\_1 & mean\_dist1 $\sim$ 0 + natal\_distance + nest\_distance + year\_born\_diff + year + (1 | mm(father, father2)) & Gaussian & 8745 & 105 \\
+imm\_m\_1 & mean\_dist1 $\sim$ 0 + resident\_status + year\_born\_diff + nest\_distance + year + (1 | mm(father, father2)) & Gaussian & 11029 & 205 \\
+age\_m\_1 & mean\_dist1 $\sim$ 0 + natal\_distance + nest\_distance + year\_born\_diff + year + (1 | mm(father, father2)) & Gaussian & 8745 & 105 \\
+
+% Cultural Novelty and Diversity
+\SetCell[c=5]{c, white}\textbf{Cultural Novelty and Diversity} \\
+nov\_m\_1 & novelty $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
+div\_m\_1 & diversity $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
+nov\_m\_2 & novelty $\sim$ 0 + diversity + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
+nov\_m\_2.1 & novelty $\sim$ 0 + diversity + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
+div\_m\_2 & n\_unique\_current\_songs $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(recorded) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & Gaussian & 791 & GP \\
+div\_m\_2.1 & n\_unique\_current\_songs $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & Gaussian & 791 & GP \\
+
+% Cultural Turnover
+\SetCell[c=5]{c, white}\textbf{Cultural Turnover} \\
+turn\_m\_1 & prop\_shared $\sim$ 0 + prop\_same\_birds + year + gp(x, y, by = year, k = 25, c = 5/4) & hurdle lognormal & 544 & GP \\
+turn\_m\_2 & prop\_shared $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + mean\_age + prop\_same\_birds + year + gp(x, y, by = year, k = 25, c = 5/4) & hurdle lognormal & 544 & GP \\
+\end{longtblr}

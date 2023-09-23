@@ -1,0 +1,199 @@
+%!TEX encoding = UTF-8 Unicode
+
+% From OUP/Overleaf for Genetics, heavily modified by Nilo Merino Recalde:
+% https://github.com/nilomr
+
+\documentclass[9pt, twocolumn, twoside]{nilosthesis}
+% set font to 9pt
+
+% Use the documentclass option 'lineno' to view line numbers, and twocolumn to have two columns obviously
+\usepackage{epstopdf}
+\usepackage{orcidlink}
+\usepackage{caption}
+\usepackage{tipa}
+\usepackage{doi}
+\usepackage{tabularray}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{multicol} % for multiple column layouts in the same document
+\usepackage{setspace}
+\setstretch{1.15} % body line space
+
+\usetikzlibrary{external} % externalise tikz figures
+\tikzexternalize
+
+
+\begin{document}
+
+
+% cover, frontispiece, etc ==============================
+
+\bgroup
+\hypersetup{linkcolor = black}
+% add 3cm before the start
+\tableofcontents
+
+%\authorlist
+
+\listoffigures
+%\listoftables % there's just two tables really, so I don't think it's worth it
+\egroup
+
+% Chapter 1: Introduction ==============================
+
+
+\runningauthor{Merino Recalde, 2023 }
+\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}General introduction}
+%\runningtitle{General introduction}
+\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+\onecolumn % start one-column layout for chatper 4
+
+    \chapter{Introduction}
+    \vspace{10pt}
+    \thispagestyle{empty}  % remove page number 
+
+    \begin{chapquote}{Werner Herzog, \textit{Burden of Dreams (1982)}}
+        [T]he birds are in misery. I don't think they---they sing, they just screech in pain. 
+    \end{chapquote}
+    
+    \vspace{1cm}
+
+% Begin chapter proper
+\begin{multicols}{2} % start one-column layout
+    \input{chapters/chapter_1}
+    \end{multicols} % end one-column layout
+    \onecolumn % start one-column layout for chatper 4 - 
+
+
+
+% % Chapter 2: Pykanto =================================
+
+\runningauthor{Merino Recalde, 2023 }
+\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}Pykanto: a python library to accelerate research on wild bird song}
+% \runningtitle{Pykanto: a python library to accelerate research on wild bird song}
+
+\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter 2
+\onecolumn % start one-column layout for chapter 2
+\chapter{Pykanto: a python library to accelerate research on wild bird song}
+\vspace{10pt}
+\thispagestyle{empty}  % remove page number 
+{\normalfont\sffamily
+\raggedleft  % add this line to force everything to be ragged left
+{Nilo Merino Recalde \orcidlink{0000-0003-3903-1288}\textsuperscript{1,$\ast$}\par
+\vskip 0.7em
+
+{\raggedleft\small\textsuperscript{1}Edward Grey Institute, Department of Biology, University of Oxford, Oxford, UK\par}
+{\raggedleft\small\textsuperscript{$\ast$}Corresponding author: \href{mailto:nilo.recalde@biology.ox.ac.uk}{nilo.recalde@biology.ox.ac.uk}}
+}
+}
+
+\myabstract{
+    \noindent  Studying the vocalisations of wild animals can be a challenge due to the limitations of traditional computational methods, which often are time-consuming and lack reproducibility. Here, I present pykanto, a new software package that provides a set of tools to build, manage, and explore large sound databases. It can automatically find discrete units in animal vocalisations, perform semi-supervised labelling of individual repertoires with a new interactive web app, and feed data to deep learning models to study things like individual signatures and acoustic similarity between individuals and populations. To demonstrate its capabilities, I put the library to the test on the vocalisations of male great tits in Wytham Woods, near Oxford, UK. The results show that the identities of individual birds can be accurately determined from their songs and that the use of pykanto improves the efficiency and reproducibility of the process.}
+
+{\small\textsf{\textbf{Keywords:} bioacoustics; animal vocalisations; python; bird song}}
+
+\vspace{.5cm}
+
+% Begin chapter proper
+\begin{multicols}{2} % start one-column layout
+    \input{chapters/chapter_2}
+    \end{multicols} % end one-column layout
+    \onecolumn
+
+
+
+
+% Chapter 3: dataset =================
+
+
+\runningauthor{Merino Recalde \textit{et al}., 2023 }
+% \runningtitle{The Wytham Woods great tit song dataset}
+\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}The Wytham Woods great tit song dataset}
+\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+\onecolumn % start one-column layout for chatper 4
+
+    \chapter{A densely sampled and richly annotated acoustic dataset from a wild bird population}
+    \vspace{10pt}
+    \thispagestyle{empty}  % remove page number 
+    {\normalfont\sffamily\raggedleft
+    {
+        Nilo Merino Recalde \orcidlink{0000-0003-3903-1288}\textsuperscript{1,$\ast$}, 
+    Andrea Estandía \orcidlink{0000-0002-3895-2141} \textsuperscript{1}, 
+    Loanne Pichot\textsuperscript{2},\\
+    Antoine Vansse\textsuperscript{2},
+    Ella F. Cole \orcidlink{0000-0002-2689-946X}\textsuperscript{1}, 
+    and Ben C. Sheldon \orcidlink{0000-0002-5240-7828}\textsuperscript{1}\par
+    \vskip 0.7em
+
+    {\small\textsuperscript{1}Edward Grey Institute, Department of Biology, University of Oxford, Oxford, UK\\
+    \small\textsuperscript{2} École Normale Supérieure de Lyon, Lyon, France\par}
+
+    \small\textsuperscript{$\ast$}Corresponding author: \href{mailto:nilo.recalde@biology.ox.ac.uk}{nilo.recalde@biology.ox.ac.uk}
+
+    } }
+
+    \myabstract{
+        \noindent We present a high-resolution, densely-sampled dataset of wild bird songs collected over multiple years from a single population of Great Tits (\textit{Parus major}) in the UK. The dataset includes over 1,100,000 individual acoustic units from 109,963 richly annotated songs, sung by more than 400 individual birds, and provides unprecedented detail on the vocal behaviour of wild birds. Here, we describe the data collection and processing procedures and provide a summary of the data. We also discuss potential research questions that can be addressed using this dataset, including behavioural repeatability and stability, links between vocal performance and reproductive success, the timing of song production, syntactic organisation of song production, and song learning in the wild. We have made the dataset and associated software tools publicly available with the aim that other researchers can benefit from this resource and use it to further our understanding of bird vocal behaviour in the wild.}
+
+    {\small\textsf{\textbf{Keywords:} animal culture; bird song; demography, cultural evolution}}
+
+    \vspace{.5cm}
+
+\begin{multicols}{2} % start one-column layout
+    \input{chapters/chapter_3}
+    \end{multicols} % end one-column layout
+    \onecolumn
+
+
+
+
+% % % Chapter 4: The demographic drivers of change in wild bird song culture: ==============
+
+\runningauthor{Merino Recalde \textit{et al}., 2023}
+\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}The demographic drivers of change in wild bird song cultures}
+%\runningtitle{The demographic drivers of change in wild bird song cultures}
+\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+\onecolumn % start one-column layout for chatper 4
+
+    \chapter{The demographic drivers of change in wild bird song culture: an individual-based study}
+    \vspace{10pt}
+    \thispagestyle{empty}  % remove page number 
+    {\normalfont\sffamily\raggedleft
+    {Nilo Merino Recalde \orcidlink{0000-0003-3903-1288}\textsuperscript{1,$\ast$}, 
+    Andrea Estandía \orcidlink{0000-0002-3895-2141} \textsuperscript{1}, 
+    Ella F. Cole \orcidlink{0000-0002-2689-946X}\textsuperscript{1}, 
+    and Ben C. Sheldon \orcidlink{0000-0002-5240-7828}\textsuperscript{1}\par
+    \vskip 0.7em
+
+    {\small\textsuperscript{1}Edward Grey Institute, Department of Biology, University of Oxford, Oxford, UK\par}
+    \small\textsuperscript{$\ast$}Corresponding author: \href{mailto:nilo.recalde@biology.ox.ac.uk}{nilo.recalde@biology.ox.ac.uk}
+
+    } }
+
+    \mysummary{
+        \noindent Social learning within communities sometimes leads to behavioural patterns that persist over time, which we know as culture. Examples of culture include learned bird and whale songs, cetacean feeding techniques, and avian and mammalian migratory routes. Shaped by neutral and selective forces, animal cultures evolve dynamically and lead to cultural traditions that differ greatly in their diversity and stability. These cultural traits can influence individual and group survival, population structure, and even inform conservation efforts, underscoring the importance of understanding how other population processes interact with social learning to shape culture. Although the impact of social learning biases and mechanisms has been extensively explored, the role of demographic factors---such as population turnover, immigration, and age structure---on cultural traits has received theoretical attention but rarely empirical investigation in natural populations. Doing so requires very complete trait sampling and detailed individual life history data, which are hard to acquire in combination. To this end, we built a multigenerational dataset containing over 109,000 songs from >400 individuals from a population of Great Birds (\textit{Parus major}), which we study using a deep metric learning model to reidentify individuals and quantify song similarity. Our findings highlight that demographic variation at the small spatial scales at which learning takes place has the potential to strongly impact the pace and outcome of animal cultural evolution. For example, age distributions skewed towards older individuals are associated with slower cultural change and increased diversity, while higher local population turnover leads to elevated rates of cultural change. Our analyses support theoretical expectations for a key role of demographic processes resulting from individual behaviour in determining cultural evolution, and emphasise that these processes interact with species-specific factors such as the timing of song acquisition. Implications extend to large-scale cultural dynamics and the formation of dialects or traditions.}
+
+    {\small\textsf{\textbf{Keywords:} animal culture; bird song; demography, cultural evolution}}
+
+    \vspace{.5cm}
+
+% Begin chapter proper
+\begin{multicols}{2} % start one-column layout
+\input{chapters/chapter_4}
+\end{multicols} % end one-column layout
+
+\onecolumn % start one-column layout for chatper 4 - supplementary
+\input{chapters/chapter_4_supp}
+
+
+% END: chapter 4
+
+
+% Chapter 5: Intervals ==============================
+
+
+% Chapter 6: Conclusions ==============================
+
+
+\end{document} 
+
