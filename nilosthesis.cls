@@ -61,7 +61,7 @@ urlcolor=hypercolor}
 \newcommand{\watermarkfont}{\color{red}\normalfont\fontsize{10}{12}\selectfont}
 \newcommand{\headerfont}{\normalfont\fontsize{8}{10}\selectfont}
 \newcommand{\headerifont}{\normalfont\fontsize{7}{9}\selectfont}
-\newcommand{\titlefont}{\color{accent_color}\normalfont\sffamily\bfseries\fontsize{22}{19}\selectfont}
+\newcommand{\titlefont}{\color{accent_color}\normalfont\scshape\bfseries\fontsize{19}{18}\selectfont}
 \newcommand\corresfont{\normalfont\sffamily\fontsize{8}{4}\selectfont}
 \newcommand{\datesfont}{\normalfont\sffamily\itshape\fontsize{8}{10}\selectfont}
 \renewcommand\UrlFont{\color{urlcolor}\sffamily}
@@ -106,12 +106,13 @@ urlcolor=hypercolor}
 \RequirePackage{changepage}
 
 % Page settings
-\RequirePackage[left=78pt,%
+\RequirePackage[
+                left=78pt,%
                 right=78pt,%
-                top=58pt,%
-                bottom=60pt,%
-                headheight=15pt,%
-                headsep=10pt,%
+                top=75pt,%
+                bottom=70pt,%
+                headheight=23pt,%
+                headsep=17pt,%
                 a4paper,twoside]{geometry}%
 \setlength{\columnsep}{24pt} % Distance between the two columns of text
 \setlength{\parindent}{10pt} % Paragraph indent
@@ -238,10 +239,8 @@ refsection=chapter
 \cfoot{}
 \rfoot{}
 
-
-\fancyhead[RO]{\sffamily\color{black50}\@runningauthor\hspace{2em}\thepage}
+% \fancyhead[RO]{\sffamily\color{black50}\@runningauthor\hspace{2em}\thepage}
 %\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}\@runningtitle}
-
 
 \fancyfoot[LO,RE]{}
 \renewcommand{\headrulewidth}{0pt}% % No header rule
@@ -689,3 +688,41 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
   {\par\normalfont\hfill--\ \chapquote@author\hspace*{1em}\par\bigskip}
 \makeatother
 
+% legacy - coming from previous template
+
+
+% Define the green color for the background
+\definecolor{chapterback}{HTML}{242424}
+% Define a command to set the background color
+\newcommand{\setchaptercolor}{\pagecolor{chapterback}}
+
+\newcommand{\copyrightpage}{
+	\newpage
+	\thispagestyle{empty}
+	\vspace*{\fill}
+	\scshape \noindent \small \copyright \small \hspace{3pt}2023\hspace{3pt}-- Nilo Merino Recalde\\
+	\vspace*{\fill}
+	\newpage
+	\rm
+}
+
+\newcommand{\abstractpage}{
+	\newpage
+	\setcounter{page}{3}
+	\pagestyle{fancy}
+	\vspace*{-\headheight}
+	\lhead{\scshape\footnotesize Thesis advisors: Professor Ben C. Sheldon \\and Dr Ella F. Cole} \rhead{\scshape\footnotesize Nilo Merino Recalde\\}
+	\renewcommand{\headrulewidth}{0.0pt}
+	\vspace*{35pt}
+	\begin{center}
+	\scshape \Large{cultural evolution in the wild:}\\
+	\normalsize
+	\scshape {tracking the landscape of learning in bird song} \\
+	\vspace*{20pt}
+	\scshape Abstract \\ \rm
+	\end{center}
+	\input{frontmatter/abstract}
+	\vspace*{\fill}
+	\newpage \lhead{} \rhead{}
+	\cfoot{\thepage}
+}
