@@ -43,8 +43,8 @@
 
 
 \newgeometry{
-    top=4cm,
-    bottom=4cm, 
+    top=2.85cm,
+    bottom=3.6cm, 
     left=78pt,%
     right=78pt,
 } % set margins for the front matter
@@ -74,7 +74,7 @@
 \onecolumn 
 \chapter*{Acknowledgements}
 \addcontentsline{toc}{chapter}{Acknowledgements}
-\vspace{10pt}
+\vspace{5pt}
 \input{chapters/thanks}
 
 % Table of contents, list of figures/tables 
@@ -91,15 +91,17 @@
 % Abstract
 \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
 \onecolumn
-\vspace{13cm} % add vertical space
+\vspace*{4cm} % add vertical space
 
-{\raggedleft\scshape \Large{cultural evolution in the wild:}}\\
+\begin{flushright}
+{\titlefont\Large{cultural evolution in the wild:}}\\
 \normalsize
-{\raggedleft\scshape {tracking the landscape of learning in bird song}} \\[.5cm]
-DPhil thesis by Nilo Merino Recalde, St. Hilda's College\\Submitted Michaelmas Term 2023\\
-Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
+{\titlefont\Large{tracking the landscape of learning in bird song}} \\[.5cm]
+DPhil thesis by Nilo Merino Recalde,\\Submitted Michaelmas Term 2023\\
+Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
+\end{flushright}
 
- {\let\clearpage\relax\chapter*{Abstract}}
+ {\let\clearpage\relax\chapter*{\scshape \Large{Abstract}}}
 \addcontentsline{toc}{chapter}{Abstract}
 
 \input{frontmatter/abstract}
@@ -113,13 +115,32 @@ Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
 
 % Chapter 1: Introduction ==============================
 
+% Add empty left page before chapter
+\thispagestyle{empty}
+\pagecolor{chapterback}
+\onecolumn 
+\normalsize
+\begin{center}
+    \color{white}
+    % \vspace*{1.7cm} % Add vertical space
+    \thispagestyle{empty}
+    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
+    \vspace*{\fill}
+    \begin{center}
+        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
+    \end{center}
+\end{center}
+\pagecolor{white}
 
+
+% Chapter proper
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde, 2023\hspace{2em}\thepage}
 \fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}General introduction}
-\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter %TODO: include fancy head in the empty page before chapter
+% \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter %TODO: include fancy head in the empty page before chapter
 \onecolumn % start one-column layout for chatper 4
 
     \chapter{Introduction}
+    \label{chapter:1}
     \vspace{10pt}
     \thispagestyle{empty}  % remove page number 
 
@@ -136,16 +157,34 @@ Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
     \onecolumn % start one-column layout for chatper 4 - 
 
 
-
 % % Chapter 2: Pykanto =================================
+
+% Add empty left page before chapter
+\thispagestyle{empty}
+\pagecolor{chapterback}
+\onecolumn 
+\normalsize
+\begin{center}
+    \color{white}
+    % \vspace*{1.7cm} % Add vertical space
+    \thispagestyle{empty}
+    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
+    \vspace*{\fill}
+    \begin{center}
+        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
+    \end{center}
+\end{center}
+\pagecolor{white}
+
 
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde, 2023\hspace{2em}\thepage}
 \fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}Pykanto: a python library to accelerate research on wild bird song}
 % \runningtitle{Pykanto: a python library to accelerate research on wild bird song}
 
-\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter 2
+% \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter 2
 \onecolumn % start one-column layout for chapter 2
 \chapter{Pykanto: a python library to accelerate research on wild bird song}
+\label{chapter:2}
 \vspace{10pt}
 \thispagestyle{empty}  % remove page number 
 {\normalfont\sffamily
@@ -159,7 +198,7 @@ Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
 }
 
 \myabstract{
-    \noindent  Studying the vocalisations of wild animals can be a challenge due to the limitations of traditional computational methods, which often are time-consuming and lack reproducibility. Here, I present pykanto, a new software package that provides a set of tools to build, manage, and explore large sound databases. It can automatically find discrete units in animal vocalisations, perform semi-supervised labelling of individual repertoires with a new interactive web app, and feed data to deep learning models to study things like individual signatures and acoustic similarity between individuals and populations. To demonstrate its capabilities, I put the library to the test on the vocalisations of male great tits in Wytham Woods, near Oxford, UK. The results show that the identities of individual birds can be accurately determined from their songs and that the use of pykanto improves the efficiency and reproducibility of the process.}
+    \noindent Studying the vocalisations of wild animals can be a challenge due to the limitations of traditional computational methods, which often are time-consuming and lack reproducibility. Here, I present pykanto, a new software package that provides a set of tools to build, manage, and explore large sound databases. It can automatically find discrete units in animal vocalisations, perform semi-supervised labelling of individual repertoires with a new interactive web app, and feed data to deep learning models to study things like individual signatures and acoustic similarity between individuals and populations. To demonstrate its capabilities, I put the library to the test on the vocalisations of male great tits in Wytham Woods, near Oxford, UK. The results show that the identities of individual birds can be accurately determined from their songs and that the use of pykanto improves the efficiency and reproducibility of the process.}
 
 {\small\textsf{\textbf{Keywords:} bioacoustics; animal vocalisations; python; bird song}}
 
@@ -177,13 +216,32 @@ Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
 % Chapter 3: dataset =================
 
 
+% Add empty left page before chapter
+\thispagestyle{empty}
+\pagecolor{chapterback}
+\onecolumn 
+\normalsize
+\begin{center}
+    \color{white}
+    % \vspace*{1.7cm} % Add vertical space
+    \thispagestyle{empty}
+    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
+    \vspace*{\fill}
+    \begin{center}
+        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
+    \end{center}
+\end{center}
+\pagecolor{white}
+
+
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde \textit{et al}., 2023\hspace{2em}\thepage}
 % \runningtitle{The Wytham Woods great tit song dataset}
 \fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}The Wytham Woods great tit song dataset}
-\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+% \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
 \onecolumn % start one-column layout for chatper 4
 
     \chapter{A densely sampled and richly annotated acoustic dataset from a wild bird population}
+    \label{chapter:3}
     \vspace{10pt}
     \thispagestyle{empty}  % remove page number 
     {\normalfont\sffamily\raggedleft
@@ -220,13 +278,32 @@ Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
 
 % % % Chapter 4: The demographic drivers of change in wild bird song culture: ==============
 
+% Add empty left page before chapter
+\thispagestyle{empty}
+\pagecolor{chapterback}
+\onecolumn 
+\normalsize
+\begin{center}
+    \color{white}
+    % \vspace*{1.7cm} % Add vertical space
+    \thispagestyle{empty}
+    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
+    \vspace*{\fill}
+    \begin{center}
+        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
+    \end{center}
+\end{center}
+\pagecolor{white}
+
+
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde \textit{et al}., 2023\hspace{2em}\thepage}
 \fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}The demographic drivers of change in wild bird song cultures}
 %\runningtitle{The demographic drivers of change in wild bird song cultures}
-\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+% \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
 \onecolumn % start one-column layout for chatper 4
 
     \chapter{The demographic drivers of change in wild bird song culture: an individual-based study}
+    \label{chapter:4}
     \vspace{10pt}
     \thispagestyle{empty}  % remove page number 
     {\normalfont\sffamily\raggedleft
@@ -242,7 +319,7 @@ Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
     } }
 
     \mysummary{
-        \noindent Social learning within communities sometimes leads to behavioural patterns that persist over time, which we know as culture. Examples of culture include learned bird and whale songs, cetacean feeding techniques, and avian and mammalian migratory routes. Shaped by neutral and selective forces, animal cultures evolve dynamically and lead to cultural traditions that differ greatly in their diversity and stability. These cultural traits can influence individual and group survival, population structure, and even inform conservation efforts, underscoring the importance of understanding how other population processes interact with social learning to shape culture. Although the impact of social learning biases and mechanisms has been extensively explored, the role of demographic factors---such as population turnover, immigration, and age structure---on cultural traits has received theoretical attention but rarely empirical investigation in natural populations. Doing so requires very complete trait sampling and detailed individual life history data, which are hard to acquire in combination. To this end, we built a multigenerational dataset containing over 109,000 songs from >400 individuals from a population of Great Birds (\textit{Parus major}), which we study using a deep metric learning model to reidentify individuals and quantify song similarity. Our findings highlight that demographic variation at the small spatial scales at which learning takes place has the potential to strongly impact the pace and outcome of animal cultural evolution. For example, age distributions skewed towards older individuals are associated with slower cultural change and increased diversity, while higher local population turnover leads to elevated rates of cultural change. Our analyses support theoretical expectations for a key role of demographic processes resulting from individual behaviour in determining cultural evolution, and emphasize that these processes interact with species-specific factors such as the timing of song acquisition. Implications extend to large-scale cultural dynamics and the formation of dialects or traditions.}
+        \noindent Social learning within communities sometimes leads to behavioural patterns that persist over time, which we know as culture. Examples of culture include learned bird and whale songs, cetacean feeding techniques, and avian and mammalian migratory routes. Shaped by neutral and selective forces, animal cultures evolve dynamically and lead to cultural traditions that differ greatly in their diversity and stability. These cultural traits can influence individual and group survival, population structure, and even inform conservation efforts, underscoring the importance of understanding how other population processes interact with social learning to shape culture. Although the impact of social learning biases and mechanisms has been extensively explored, the role of demographic factors---such as population turnover, immigration, and age structure---on cultural traits has received theoretical attention but rarely empirical investigation in natural populations. Doing so requires very complete trait sampling and detailed individual life history data, which are hard to acquire in combination. To this end, we built a multigenerational dataset containing over 109,000 songs from >400 individuals from a population of great tits (\textit{Parus major}), which we study using a deep metric learning model to reidentify individuals and quantify song similarity. Our findings highlight that demographic variation at the small spatial scales at which learning takes place has the potential to strongly impact the pace and outcome of animal cultural evolution. For example, age distributions skewed towards older individuals are associated with slower cultural change and increased diversity, while higher local population turnover leads to elevated rates of cultural change. Our analyses support theoretical expectations for a key role of demographic processes resulting from individual behaviour in determining cultural evolution, and emphasize that these processes interact with species-specific factors such as the timing of song acquisition. Implications extend to large-scale cultural dynamics and the formation of dialects or traditions.}
 
     {\small\textsf{\textbf{Keywords:} animal culture; bird song; demography, cultural evolution}}
 
@@ -262,18 +339,35 @@ Thesis advisors: Professor Ben C. Sheldon and Dr Ella F. Cole\\
 
 % Chapter 5: Intervals ==============================
 
-\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+% Add empty left page before chapter
+\thispagestyle{empty}
+\pagecolor{chapterback}
+\onecolumn 
+\normalsize
+\begin{center}
+    \color{white}
+    % \vspace*{1.7cm} % Add vertical space
+    \thispagestyle{empty}
+    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
+    \vspace*{\fill}
+    \begin{center}
+        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
+    \end{center}
+\end{center}
+\pagecolor{white}
+
+
+% \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde \textit{et al}., 2023\hspace{2em}\thepage}
 \fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}Melodic and rhythmic structure in bird song}
 \onecolumn % start one-column layout for chatper 4
 
-    \chapter{The demographic drivers of change in wild bird song culture: an individual-based study}
+    \chapter{The melodic and rhythmic structure of great tit song}
+    \label{chapter:5}
     \vspace{10pt}
     \thispagestyle{empty}  % remove page number 
     {\normalfont\sffamily\raggedleft
-    {Nilo Merino Recalde \orcidlink{0000-0003-3903-1288}\textsuperscript{1,$\ast$}, 
-    Andrea Estandía \orcidlink{0000-0002-3895-2141} \textsuperscript{1}, 
-    Ella F. Cole \orcidlink{0000-0002-2689-946X}\textsuperscript{1}, 
+    {Nilo Merino Recalde \orcidlink{0000-0003-3903-1288}\textsuperscript{1,$\ast$} 
     and Ben C. Sheldon \orcidlink{0000-0002-5240-7828}\textsuperscript{1}\par
     \vskip 0.7em
 

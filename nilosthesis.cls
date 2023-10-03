@@ -40,6 +40,8 @@
 \RequirePackage{url}
 \RequirePackage[colorlinks=true, allcolors=hypercolor]{hyperref}
 
+\usepackage{gensymb} % for degree symbol
+
 \hypersetup{ 
 colorlinks=true,
 citecolor=hypercolor,
@@ -135,6 +137,8 @@ singlelinecheck=false,
 margin=0pt,
 figurewithin=chapter,
 tablewithin=chapter]{caption}
+
+\usepackage[normalem]{ulem} % for strikethrough
 
 
 \newcommand\myhrulefill[1]{\leavevmode\leaders\hrule height#1\hfill\kern0pt}
@@ -726,3 +730,7 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 	\newpage \lhead{} \rhead{}
 	\cfoot{\thepage}
 }
+
+
+% Change color of page before chapter
+

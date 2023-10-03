@@ -5,7 +5,7 @@ For those interested in social learning and cultural evolution, animal vocalisat
 
 Beyond their fundamental scientific importance, animal vocalisations have practical applications in various fields. For example, there is increasing recognition of their potential as a non-invasive tool for monitoring populations. By analysing entire soundscapes, researchers can gather crucial information about population dynamics, species distribution, and the presence of rare or elusive species \parencite{kahl2021, sethi2020, sugai2019}.
 
-However, despite the growing interest in animal vocalisations and their potential applications, publicly available data from wild populations are still scarce---with the \href{https://xeno-canto.org/}{xeno-canto} community science project as a prominent exception, focusing primarily on sparse recordings of most of the world's bird species rather than dense sampling of populations within the same species. This can severely limit researchers’ ability to ask questions that require large datasets to answer, such as those about social learning, vocal development, large-scale cultural diversity, and the syntactic structure of animal vocalisations \parencite{aplin2019, kollmorgen2020, lachlan2018, sainburg2019}. Indeed, while controlled laboratory settings allow researchers to track vocal development and production in minute detail, it is much harder to obtain finely-grained data from animals in their natural habitats. The process of collecting such data can be quite demanding and requires significant time, technical expertise, and resources: this includes both data collection itself and the subsequent processing of acoustic data files.
+However, despite the growing interest in animal vocalisations and their potential applications, publicly available data from wild populations are still scarce---with the \href{https://xeno-canto.org/}{xeno-canto} community science project as a prominent exception, focusing primarily on sparse recordings of most of the world's bird species rather than dense sampling of populations within the same species. This can severely limit researchers' ability to ask questions that require large datasets to answer, such as those about social learning, vocal development, large-scale cultural diversity, and the syntactic structure of animal vocalisations \parencite{aplin2019, kollmorgen2020, lachlan2018, sainburg2019}. Indeed, while controlled laboratory settings allow researchers to track vocal development and production in minute detail, it is much harder to obtain finely-grained data from animals in their natural habitats. The process of collecting such data can be quite demanding and requires significant time, technical expertise, and resources: this includes both data collection itself and the subsequent processing of acoustic data files.
 
 A second limitation arises after data have been collected, due to (i) researchers' understandable focus on specific, often narrowly defined questions, (ii) practical constraints, and (iii) scientific cultural norms that have not encouraged data-sharing. Combined, these factors often lead to a tendency of not publishing or only partially publishing the data collected during research. This lack of data sharing can hinder scientific progress and make it difficult to reproduce research findings \parencite{jenkins2023, powers2019, reichman2011, wilkinson2016}; hence, we argue that there is great intrinsic value in publishing fully curated acoustic datasets. If this practice becomes widespread, it would allow scientists to explore a broader range of research questions, improve reproducibility, and facilitate the validation of findings across different studies and populations \parencite{hersh2023, powers2019}.
 
@@ -36,6 +36,15 @@ We collected data from late March to mid-May during the breeding seasons of 2020
 
 To record the vocalisations of male great tits, we took advantage of their behaviour during the reproductive period, when they engage in continuous singing near their nests at dawn before and during egg laying \parencite{mace1987}. Collectively, this vocal display is referred to as the dawn chorus and has been demonstrated to yield a reliable estimation of the song repertoire of individuals when recorded in full \parencite{rivera-gutierrez2012, vanduyse2005}. As soon as we suspected that a pair of great tits were using a nest box based on nest lining materials, egg size if present, or other signs of activity, we deployed an autonomous sound recorder nearby. These recorders were placed on the trunk of the same tree or on a nearby tree, between 1 and 2 metres above the ground and no more than 5 metres away, depending on tree availability. We aimed to keep the recorder in a consistent position and orientation. The microphone pointed upwards and slightly away from the nest box, in the same direction as the entrance hole. The birds sang close to the recorder---we were not able to collect data on this, but the mean distance to the nest box was 10 m in a different population \parencite{halfwerk2012}, which matches our anecdotal observations--- and moved around. Although changes in amplitude due to distance and directionality impacted song selection, we didn't observe any systematic bias.
 
+%%%%% FIG 2: PIPELINE
+\begin{figure*}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_3/FIG2-AB.pdf}
+    \mycaption{Data collection and analysis pipeline used to prepare the Wytham great tit Song Dataset}{A brief visual summary of the data collection and analysis pipeline used to prepare the Wytham great tit Song Dataset. (A) Data collection in the field. (B) The terminology used to describe the various hierarchical levels at which we can describe great tit's singing. (C) Computational pipeline. (D) Main outputs included as part of the dataset.}
+    \label{c3_fig:pipeline}
+\end{figure*}
+%%%%%
+
 \subsection{Ethical note}
 All work involving birds was subject to review by the University of Oxford, Department of Zoology, Animal Welfare and Ethical Review Board (approval number: APA/1/5/ZOO/NASPA/ Sheldon/TitBreedingEcology). Data collection adhered to local guidelines for the use of animals in research and all birds were caught, tagged, and ringed by BTO licence holders.
 
@@ -51,21 +60,18 @@ We used 60 (30 in 2020) AudioMoth recorders \parencite{hill2019}, which were hou
     The fundamental temporal unit is referred to as a \textbf{note}. Notes are represented by continuous traces on the sound spectrogram and are separated by silences. Moving up the hierarchy, \textbf{syllables} are sequences of one or more notes that are always repeated in the same order. Beyond syllables, we have \textbf{songs}, which consist of clusters of the same type of syllables punctuated by longer pauses, often in the order of seconds. Lastly, song \textbf{bouts} are uninterrupted performances of songs of the same type. great tits tend to sing the same song type repeatedly before transitioning to a different type. They continue this pattern until they stop singing altogether, often after having performed their entire song repertoire.
 \end{tcolorbox}
 
+%%%%% FIG 3: QUERIES
+\begin{figure*}
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_3/FIG3-AB.pdf}
+    \mycaption{A visual representation of the song spectrogram embedding space}{Measuring similarity is a very hard problem, in large part because there is often no objective way to compare the performance of different methods. Here, we took a data-based approach by training a Vision Transformer (ViT) model as a feature extractor in a Euclidean metric learning task. The resulting embedding space allows us to judge if two songs are very similar, and to re-identify birds. (\textbf{A}) PCA projection of the feature vectors: two orthogonal linear components do not capture much of the high-level distinguishing features. (\textbf{B}) This figure shows a UMAP projection of the 384-dimensional vectors for each song in the dataset into 2D, which leads to a fairly arbitrary but useful visualisation where tight clusters of points correspond to song types in the repertoire of individual birds. They are coloured by how densely occupied that region of space is in the high-dimensional space, based on k=30 neighbours from other song types. (\textbf{C}) A k-nearest neighbour search returns the closest matches for a query vector (highlighted).}
+    \label{c3_fig:queries}
+\end{figure*}
+%%%%%
 
 \section{Data processing and annotation}
 
 We processed and annotated the recordings using custom software and scripts written in Python 3 \parencite{vanrossum1995}, using the open-source package \texttt{pykanto} \parencite{merinorecalde2023}. These are available from \href{https://github.com/nilomr/great-tit-hits-setup}{github.com/nilomr/great-tit-hits-setup} \parencite{nilo_gretidataset_setup_2023}. \hyperref[c3_fig:pipeline]{Figure \ref*{c3_fig:pipeline}} shows a graphic illustration of the process. See also Box 1 for a note on the terminology used for different parts of the songs.
-
-
-%%%%% FIG 2: PIPELINE
-\begin{figure*}
-    \centering
-    \includegraphics[width=\linewidth]{figures/chapter_3/FIG2-AB.pdf}
-    \mycaption{Data collection and analysis pipeline used to prepare the Wytham great tit Song Dataset}{A brief visual summary of the data collection and analysis pipeline used to prepare the Wytham great tit Song Dataset. (A) Data collection in the field. (B) The terminology used to describe the various hierarchical levels at which we can describe great tit's singing. (C) Computational pipeline. (D) Main outputs included as part of the dataset.}
-    \label{c3_fig:pipeline}
-\end{figure*}
-%%%%%
-
 
 \subsection{Song segmentation}
 
@@ -85,15 +91,6 @@ We segmented the resulting song selections into their constituent notes using a 
 
 It should be noted that the automated segmentation process is susceptible to various factors that can influence its accuracy. These include background noise, significant variation in amplitude between notes, attenuation caused by vegetation, changes in the direction of sound production, and even variations in performance where some notes may be much quieter. As a result, the algorithm may fail to detect or incorrectly delimit certain notes. Despite this, we estimate that approximately 96\% of the notes are correctly segmented (0.037 error rate based on a random subset of n = 1048 notes that were checked manually). Still, depending on specific goals, we recommend manual verification of note segmentation if complete accuracy is crucial.
 
-%%%%% FIG 3: QUERIES
-\begin{figure*}
-    \centering
-    \includegraphics[width=\linewidth]{figures/chapter_3/FIG3-AB.pdf}
-    \mycaption{A visual representation of the song spectrogram embedding space}{Measuring similarity is a very hard problem, in large part because there is often no objective way to compare the performance of different methods. Here, we took a data-based approach by training a Vision Transformer (ViT) model as a feature extractor in a Euclidean metric learning task. The resulting embedding space allows us to judge if two songs are very similar, and to re-identify birds. (\textbf{A}) PCA projection of the feature vectors: two orthogonal linear components do not capture much of the high-level distinguishing features. (\textbf{B}) This figure shows a UMAP projection of the 384-dimensional vectors for each song in the dataset into 2D, which leads to a fairly arbitrary but useful visualisation where tight clusters of points correspond to song types in the repertoire of individual birds. They are coloured by how densely occupied that region of space is in the high-dimensional space, based on k=30 neighbours from other song types. (\textbf{C}) A k-nearest neighbour search returns the closest matches for a query vector (highlighted).}
-    \label{c3_fig:queries}
-\end{figure*}
-%%%%%
-
 \subsection{Song type annotation}
 
 We annotated each song type in the dataset using a semi-supervised approach implemented in \texttt{pykanto}. The process involved several steps to ensure accurate classification. First, we generated average unit spectrograms for each song by taking the mean of the centred and padded spectrograms of its units or notes, which provided a concise representation of the temporal and spectral characteristics of the syllable within it. Next, we performed non-linear dimensionality reduction using UMAP \parencite{mcinnes2018} and a cluster search using HDBSCAN \parencite{mcinnes2017} for each bird in the dataset. See \parencite{sainburg2020a, thomas2021} for similar approaches. This strategy, while useful, often leads to spurious outcomes. For instance, it may separate renditions of the same song type if variation in performance or background noise exists, or if certain song elements are sometimes attenuated. Such variation could be misinterpreted as distinct song types, leading to an overestimation of repertoire size. To address this, we used the interactive app in \texttt{pykanto} to review and split or combine clusters as necessary for each bird. It is worth mentioning that this process would be significantly more challenging in species with highly variable songs: our approach benefited from the great tits' relatively limited repertoires (1 to fewer than 15 song types in our population) and their tendency to produce stable and stereotyped songs.
@@ -102,13 +99,7 @@ We annotated each song type in the dataset using a semi-supervised approach impl
 
 Comparing animal vocalisations poses a significant challenge for researchers. Traditionally, two approaches have been used: visual comparisons of spectrograms and, more recently, measurement of handpicked acoustic features \parencite{goffinet2021}. However, these methods have limitations when dealing with noise, variations in performance, and changes in syntax (where compositional syntax is not relevant). For instance, if a song with the sequence "tea-cher, tea-cher" is recorded as "cher-tea, cher", it might be wrongly perceived as highly dissimilar, despite being the same song (see \cite{stowell2021, zandberg2022} for a good overview of these issues). Additionally, these methods often fail to capture high-level features such as the syntactic relationships between notes and other complex spectrotemporal characteristics that cannot be easily characterised by an orthogonal combination of simple acoustic features.
 
-Unfortunately, we cannot rely on the birds' perceptual judgements due to the lack of a hard to obtain experimental data (though recent studies, such as \cite{morfi2021, zandberg2022}, have explored this avenue). This can be an issue where the focus of research is behavioural interactions or the social functions of song. At the same time, for monitoring or individual identification purposes, fully mimicking the bird's perceptual space may not be ideal: the performance of metric learning or classification algorithms trained for narrow purposes can surpass the organism's abilities, as exemplified by facial recognition in humans \parencite{lu2014}. Here, our goal was to define a similarity space based on the inherent variation in the data and the only categorical labels that we know are perceptually and behaviourally significant: song types sung by individual birds. Given that great tits can recognise each other based on their vocalisations \parencite{lind1996}, we aimed to define a similarity space that facilitates similarity-based research and captures some of the song characteristics that birds themselves might attend to when distinguishing individuals. To do this, we took advantage of recent advances in the fields of deep learning and computer vision and used a data-driven approach. Below is a simple narrative description of the process. For further details, see the dedicated repository \href{https://github.com/nilomr/open-metric-learning/tree/great-tit}{nilomr/open-metric-learning} and the OML library \parencite{shabanov2023}. 
-
-
-\subsubsection{Metric Learning and Vision Transformers}
-Rather than focusing on classification, we aimed to develop semantically meaningful embeddings. To achieve this, we used a Vision Transformer (ViT) model as a feature extractor in a (Euclidean) metric learning task. These models, inspired by the success of transformers in natural language processing applications, process images by splitting them into patches, treating them as tokens similar to words in a natural language \parencite{dosovitskiy2021, raghu2022}. In this case, we used the ViT-S/16 architecture (21.7 M parameters), pre-trained on ImageNet using the DINO method (self-distillation with no labels; \cite{caron2021}).
-
-\begin{table*}
+\begin{table*}[ht!]
     \centering
     \mycaption{Short description of the files included in the dataset}{Short description of the files included in the dataset. See \href{https://nilomr.github.io/great-tit-hits}{the docs} for detailed documentation.}
     \label{table:summary}
@@ -130,6 +121,12 @@ Rather than focusing on classification, we aimed to develop semantically meaning
     \end{tblr}
 \end{table*}
 
+Unfortunately, we cannot rely on the birds' perceptual judgements due to the lack of a hard to obtain experimental data (though recent studies, such as \cite{morfi2021, zandberg2022}, have explored this avenue). This can be an issue where the focus of research is behavioural interactions or the social functions of song. At the same time, for monitoring or individual identification purposes, fully mimicking the bird's perceptual space may not be ideal: the performance of metric learning or classification algorithms trained for narrow purposes can surpass the organism's abilities, as exemplified by facial recognition in humans \parencite{lu2014}. Here, our goal was to define a similarity space based on the inherent variation in the data and the only categorical labels that we know are perceptually and behaviourally significant: song types sung by individual birds. Given that great tits can recognise each other based on their vocalisations \parencite{lind1996}, we aimed to define a similarity space that facilitates similarity-based research and captures some of the song characteristics that birds themselves might attend to when distinguishing individuals. To do this, we took advantage of recent advances in the fields of deep learning and computer vision and used a data-driven approach. Below is a simple narrative description of the process. For further details, see the dedicated repository \href{https://github.com/nilomr/open-metric-learning/tree/great-tit}{nilomr/open-metric-learning} and the OML library \parencite{shabanov2023}. 
+
+
+\subsubsection{Metric Learning and Vision Transformers}
+Rather than focusing on classification, we aimed to develop semantically meaningful embeddings. To achieve this, we used a Vision Transformer (ViT) model as a feature extractor in a (Euclidean) metric learning task. These models, inspired by the success of transformers in natural language processing applications, process images by splitting them into patches, treating them as tokens similar to words in a natural language \parencite{dosovitskiy2021, raghu2022}. In this case, we used the ViT-S/16 architecture (21.7 M parameters), pre-trained on ImageNet using the DINO method (self-distillation with no labels; \cite{caron2021}).
+
 \subsubsection{Model Training}
 During the training phase, we fine-tuned the ViT model using the great tit song dataset. To optimise the performance of the model, we used Triplet loss, a loss function that ensures that the projection of a positive sample, which belongs to the same class as the anchor point, is closer to the anchor's projection than that of a negative sample, which belongs to a different class, by at least a specified margin \parencite{hermans2017, hoffer2018}. This loss function enables embedding points of the same class to form clusters without collapsing into a single point, which allows us to also explore differences within song types. While training the model we mined hard triplets---where the negative sample is closer to the anchor than the positive---and used the Adam optimiser with a fixed learning rate of $1 \times 10^{-5}$.
 
@@ -139,7 +136,7 @@ The distribution of song sample sizes per individual in the great tit dataset ap
 \subsubsection{Train-Time Data Augmentation}
 To enhance model robustness and prevent overfitting, we apply various train-time data augmentation techniques \parencite{mumuni2022, perez2017, shorten2019}. These include random cropping in the time domain, dropping out parts of the spectrogram, adding Gaussian and multiplicative noise, equalisation, sharpening, changes to brightness and contrast, blurring, and slight shifting in both time and frequency domains. The latter augmentations are applied within the typical variation in performance observed in the great tit vocalisations.
 
-\begin{table*}
+\begin{table*}[ht!]
     \centering
     \mycaption{Description of the dataset and sample sizes}{A brief description of the dataset and sample sizes for different subsets of the data.}
     \label{table:samples}
