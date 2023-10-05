@@ -700,6 +700,11 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 % Define a command to set the background color
 \newcommand{\setchaptercolor}{\pagecolor{chapterback}}
 
+% load pagecolor package - allows to change page color and back
+\usepackage{pagecolor}
+\usepackage{afterpage}% for "\afterpage"
+
+
 \newcommand{\copyrightpage}{
 	\newpage
 	\thispagestyle{empty}
@@ -733,4 +738,4 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 
 
 % Change color of page before chapter
-
+\usepackage{pdfpages}

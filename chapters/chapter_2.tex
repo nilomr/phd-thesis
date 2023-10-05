@@ -1,6 +1,6 @@
 \section{Introduction}
 
-Collecting large amounts of acoustic data from wild bird populations has
+\lettrine[lines=2,slope=0pt, nindent=5pt]Collecting large amounts of acoustic data from wild bird populations has
 traditionally been very difficult. Due to technical limitations, studies have
 often been constrained to tens of individuals and tens, or at best hundreds of
 vocalisations. But this has changed rapidly within the last decade: compact and
@@ -77,9 +77,9 @@ sustainable software practises, and geared towards computational
 reproducibility and transparency.
 
 %%%%% FIG 2
-\begin{figure*}
+\begin{figure*}[bh!]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/chapter_2/fig2.pdf}
+    \includegraphics[width=\textwidth]{figures/chapter_2/fig2.pdf}
     \mycaption{General structure of the library: main class and modules}{\texttt{pykanto} is written around a central dataset class, \texttt{KantoData}, which provides methods to segment, visualise and label vocalisations. The library contains six modules with functions and classes to carry out common tasks in animal vocalisation analysis.}
     \label{fig:structure}
 \end{figure*}
@@ -346,9 +346,9 @@ licence}.
 
 \paragraph{Bengalese finch songs} Recordings from 2 isolated Bengalese finches. Originally
 published in Tachibana, Koumura and Okanoya \parencite{tachibana2015}, data can be
-accessed at \href{https://osf.io/r6paq/}{OSF}.\par
+accessed at \href{https://osf.io/r6paq/}{OSF}.\\[.2cm]
 
-They can be found under \texttt{pykanto/data} when you install the package, as well as in the \href{https://github.com/nilomr/pykanto}{GitHub repository}.
+\noindent They can be found under \texttt{pykanto/data} when you install the package, as well as in the \href{https://github.com/nilomr/pykanto}{GitHub repository}.
 
 \paragraph{}Additionally, the worked example in this article uses 5293 songs from male great tit songs recorded by the author between 2020 and 2021 in Wytham Woods, Oxfordshire, UK. They are available from \href{https://github.com/nilomr/pykanto-example/tree/main/data/segmented/pykanto-example}{pykanto-example/data} on GitHub, along with detailed metadata \parencite{nilo_pykanto_example_2023}.
 
@@ -357,7 +357,7 @@ They can be found under \texttt{pykanto/data} when you install the package, as w
 The latest version of \texttt{pykanto} is available from PyPI (\texttt{pip install
 pykanto}) and its source repository (\href{https://github.com/nilomr/pykanto}{github.com/pykanto}). See the repository for detailed installation instructions.
 
-\texttt{pykanto} and the example in this article rely on the following open-source scientific
+\noindent \texttt{pykanto} and the example in this article rely on the following open-source scientific
 libraries or tools: numpy \parencite{numpy2020}, scipy \parencite{scipy2020}, pandas
 \parencite{pandas2023}, numba \parencite{lam2015}, pytorch \parencite{pytorch2019},
 torchvision \parencite{torchvision2016}, pytorch lightning

@@ -117,21 +117,18 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % Add empty left page before chapter
 \thispagestyle{empty}
-\pagecolor{chapterback}
+\newpagecolor{chapterback}
 \onecolumn 
 \normalsize
+ \vspace*{.85cm} % Add vertical space
 \begin{center}
-    \color{white}
-    % \vspace*{1.7cm} % Add vertical space
-    \thispagestyle{empty}
-    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
-    \vspace*{\fill}
-    \begin{center}
-        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
-    \end{center}
+    \makebox[\textwidth][c]{\includegraphics[width=\paperwidth]{figures/chapter_1/bird-in-woods.png}}
 \end{center}
-\pagecolor{white}
-
+    \vspace*{\fill}
+\begin{center}
+        \textcolor{gray}{Great tit male singing by a nest box at sunrise.\\Vector Illustration, Nilo Merino Recalde, 2023}
+\end{center}
+\afterpage{\restorepagecolor}
 
 % Chapter proper
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde, 2023\hspace{2em}\thepage}
@@ -160,22 +157,7 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 % % Chapter 2: Pykanto =================================
 
 % Add empty left page before chapter
-\thispagestyle{empty}
-\pagecolor{chapterback}
-\onecolumn 
-\normalsize
-\begin{center}
-    \color{white}
-    % \vspace*{1.7cm} % Add vertical space
-    \thispagestyle{empty}
-    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
-    \vspace*{\fill}
-    \begin{center}
-        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
-    \end{center}
-\end{center}
-\pagecolor{white}
-
+\includepdf{figures/chapter_2/code-cover.jpg}
 
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde, 2023\hspace{2em}\thepage}
 \fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}Pykanto: a python library to accelerate research on wild bird song}
@@ -216,22 +198,19 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 % Chapter 3: dataset =================
 
 
-% Add empty left page before chapter
 \thispagestyle{empty}
-\pagecolor{chapterback}
+\newpagecolor{chapterback}
 \onecolumn 
 \normalsize
+ \vspace*{3cm} % Add vertical space
 \begin{center}
-    \color{white}
-    % \vspace*{1.7cm} % Add vertical space
-    \thispagestyle{empty}
-    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
-    \vspace*{\fill}
-    \begin{center}
-        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
-    \end{center}
+    \makebox[\textwidth][c]{\includegraphics[width=0.85\paperwidth]{figures/chapter_3/gretis-illustration.png}}
 \end{center}
-\pagecolor{white}
+    \vspace*{\fill}
+\begin{center}
+        \textcolor{gray}{A pair of great tits, singing male.\\Digital Illustration, \href{https://www.instagram.com/tawatha.blog}{Tawatha T. Elguero}, 2022}
+\end{center}
+\afterpage{\restorepagecolor}
 
 
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde \textit{et al}., 2023\hspace{2em}\thepage}
@@ -280,20 +259,18 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % Add empty left page before chapter
 \thispagestyle{empty}
-\pagecolor{chapterback}
+\newpagecolor{chapterback}
 \onecolumn 
 \normalsize
+ \vspace*{3cm} % Add vertical space
 \begin{center}
-    \color{white}
-    % \vspace*{1.7cm} % Add vertical space
-    \thispagestyle{empty}
-    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
-    \vspace*{\fill}
-    \begin{center}
-        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
-    \end{center}
+    \makebox[\textwidth][c]{\includegraphics[width=0.80\paperwidth]{figures/chapter_3/gretis-illustration.png}}
 \end{center}
-\pagecolor{white}
+    \vspace*{\fill}
+\begin{center}
+        \textcolor{gray}{A pair of great tits, singing male.\\Digital Illustration, \href{https://www.instagram.com/tawatha.blog}{Tawatha T. Elguero}, 2022}
+\end{center}
+\afterpage{\restorepagecolor}
 
 
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde \textit{et al}., 2023\hspace{2em}\thepage}
@@ -341,20 +318,20 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % Add empty left page before chapter
 \thispagestyle{empty}
-\pagecolor{chapterback}
+\newpagecolor{chapterback}
 \onecolumn 
 \normalsize
+ \vspace*{5.9cm} % Add vertical space
 \begin{center}
-    \color{white}
-    % \vspace*{1.7cm} % Add vertical space
-    \thispagestyle{empty}
-    \includegraphics[width=\linewidth]{figures/nonchapter/nebula.png}
-    \vspace*{\fill}
-    \begin{center}
-        \textcolor{gray}{\textsc{2d umap} projection of song trajectories across acoustic space.\\Sang by great tits in Wytham Woods, 2020}
-    \end{center}
+    \makebox[\textwidth][c]{\includegraphics[width=\paperwidth]{figures/chapter_5/wave.png}}
 \end{center}
-\pagecolor{white}
+    \vspace*{\fill}
+\begin{center}
+        \textcolor{gray}{\textsc{3d} mesh spectrogram of a great tit song.\\Watch video animation \href{https://youtu.be/g4C6tME52XQ?si=qa4DZGA3HBK27MmU}{here}}
+\end{center}
+\afterpage{\restorepagecolor}
+
+
 
 
 % \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
@@ -394,6 +371,19 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % Chapter 6: Conclusions ==============================
 
+
+% back 
+
+\thispagestyle{empty}
+\newpagecolor{chapterback}
+\onecolumn 
+\normalsize
+ \vspace*{5cm} % Add vertical space
+\begin{center}
+    \makebox[\textwidth][c]{\hspace{1cm}\includegraphics[width=0.40\paperwidth]{figures/nonchapter/bird-hawthorn.png}}
+    \\[2cm]
+\parbox{200pt}{\lettrine[lines=2,slope=0pt, nindent=5pt]\textcolor{gray}{Singing great tit male perched on a hawthorn in bloom. Vector Illustration. This thesis was typeset using \LaTeX, developed by Leslie Lamport based on Donald Knuth's \TeX. By Nilo Merino Recalde, 2023}}
+\end{center}
 
 \end{document} 
 
