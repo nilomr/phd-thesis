@@ -1,6 +1,6 @@
 \section{Introduction}
 
-\lettrine[lines=2,slope=0pt, nindent=5pt]Collecting large amounts of acoustic data from wild bird populations has
+\lettrine[lines=2]Collecting large amounts of acoustic data from wild bird populations has
 traditionally been very difficult. Due to technical limitations, studies have
 often been constrained to tens of individuals and tens, or at best hundreds of
 vocalisations. But this has changed rapidly within the last decade: compact and
@@ -90,12 +90,12 @@ reproducibility and transparency.
 \texttt{pykanto} is a software library designed to streamline the process of
 analysing animal vocalisations. It is programmed in Python and offers various
 modules to assist users in their work (see \autoref{fig:structure}). The central module is
-\texttt{pykanto.dataset}, which serves as a database for vocalizations and
+\texttt{pykanto.dataset}, which serves as a database for vocalisations and
 includes methods to visualise, segment, and label them. The \texttt{pykanto.signal} module provides tools for
 signal processing and creating spectrograms, while \texttt{pykanto.parameters}
 contains classes and functions for managing parameters. The web application
 \texttt{pykanto.app} allows users to explore and label large numbers of
-vocalizations (\autoref{fig:app}) and \texttt{pykanto.plot} provides functions for
+vocalisations (\autoref{fig:app}) and \texttt{pykanto.plot} provides functions for
 plotting spectrograms. Finally, \texttt{pykanto.utils} includes parsers, I/O
 tools, custom typing, and general computing functions. The documentation for
 \texttt{pykanto} is available at
@@ -144,7 +144,7 @@ intensive, such as calculating spectrograms, performing operations on large
 arrays, and running dimensionality reduction and clustering algorithms.
 High-level, interpreted languages---like R or Python---are notoriously slow: where
 possible, we have optimised performance by both a) translating functions to
-optimized machine code at runtime using Numba \parencite{lam2015} and b)
+optimised machine code at runtime using Numba \parencite{lam2015} and b)
 parallelising tasks using Ray, a state-of-the-art platform for distributed
 computing \parencite{moritz2018}. As an example, the \texttt{segment\_into\_units()}
 function can find and segment 20.000 discrete acoustic units in approximately
@@ -231,11 +231,11 @@ raw data, auxiliary scripts and detailed instructions. Below is a short
 narrative description of the process.
 
 \subsection{Data collection}
-Most great tits in our population nest in nest boxes with known locations. Every year, fieldworkers record the identities of breeding males and females, clutch initiation and egg-hatching dates, clutch size, and fledgling success using standardized protocols. A significant number of birds in the population are fitted with a unique British Trust for Ornithology (BTO) metal leg ring as nestlings or adults. During the breeding season (March to June), great tit pairs are socially monogamous and protect territories around their nest boxes \parencite{hinde1952}.
+Most great tits in our population nest in nest boxes with known locations. Every year, fieldworkers record the identities of breeding males and females, clutch initiation and egg-hatching dates, clutch size, and fledgling success using standardised protocols. A significant number of birds in the population are fitted with a unique British Trust for Ornithology (BTO) metal leg ring as nestlings or adults. During the breeding season (March to June), great tit pairs are socially monogamous and protect territories around their nest boxes \parencite{hinde1952}.
 
 We collected data during the breeding seasons of 2020 and 2021, from early April to late May, using a dense sampling design with multiple recorders placed in nest boxes throughout the study site. Fieldworkers checked every nest box in the study site at least once a week before and during egg laying, which can last from one to 14 days \parencite{Perrins1965}. Once a nest box was believed to be in use by a great tit, we placed an autonomous sound recorder in its vicinity, either in the same tree or in a suitable neighbouring tree. We left each recorder in the same location for at least three consecutive days before moving it to a different nest box. Throughout the recording period, we relocated 20 recorders every day.
 
-We used 60 AudioMoth recorders \parencite{hill2019} in 2021 and 30 in 2020, which were housed in waterproof custom-built enclosures. Recording began about an hour before sunrise (from 05:36 to 04:00 UTC during the recording period) and consisted of seven 60-minute recordings with a sample rate of 48 kHz. Since the recording process was automated, there is a possibility that some of the songs recorded in the immediate vicinity of a given nest box do not belong to the focal bird. To reduce the risk of false positives, we discarded recordings with more than one vocalizing bird, unless one was distinctly louder than the others. We also discarded all songs with a maximum amplitude below $-16 dB$, calculated as $20\log_{10} \left (\frac{A}{A_{0}}\right )$, with $A = 5000$ and $A_{0} = 32767$ (the maximum value for 16-bit digital audio). This threshold was determined from the observation that, in cases where we had simultaneous recordings of close neighbours from the centres of their respective territories, an amplitude cutoff greater than 4000 always separated a focal bird from its neighbours. It should be noted that these values are not calibrated and are relative to the recording equipment and settings used, as well as other factors such as sound directionality and vegetation cover.
+We used 60 AudioMoth recorders \parencite{hill2019} in 2021 and 30 in 2020, which were housed in waterproof custom-built enclosures. Recording began about an hour before sunrise (from 05:36 to 04:00 UTC during the recording period) and consisted of seven 60-minute recordings with a sample rate of 48 kHz. Since the recording process was automated, there is a possibility that some of the songs recorded in the immediate vicinity of a given nest box do not belong to the focal bird. To reduce the risk of false positives, we discarded recordings with more than one vocalising bird, unless one was distinctly louder than the others. We also discarded all songs with a maximum amplitude below $-16 dB$, calculated as $20\log_{10} \left (\frac{A}{A_{0}}\right )$, with $A = 5000$ and $A_{0} = 32767$ (the maximum value for 16-bit digital audio). This threshold was determined from the observation that, in cases where we had simultaneous recordings of close neighbours from the centres of their respective territories, an amplitude cutoff greater than 4000 always separated a focal bird from its neighbours. It should be noted that these values are not calibrated and are relative to the recording equipment and settings used, as well as other factors such as sound directionality and vegetation cover.
 
 \subsection{Running the analysis}
 \subsubsection{Installation}
@@ -371,7 +371,7 @@ scikit-image \parencite{scikitimage2014}, librosa \parencite{mcfee2015}, bokeh
 \section{Acknowledgements}
 
 I thank Ben Sheldon and the Sheldon lab for their support and
-patience. Ben Sheldon, Carys Jones and Andrea Estandia provided useful comments on a draft of this
+patience. Ben Sheldon, Carys Jones and Andrea Estandía provided useful comments on a draft of this
 manuscript. Carys Jones and Antoine Vansse tried early versions of the
 interactive app in \texttt{pykanto} and provided valuable feedback.
 
@@ -387,8 +387,8 @@ I have learnt a great deal about packaging and developing in Python by browsing
 the structure of existing open source projects, for example some by David
 Nicholson (\href{https://github.com/NickleDave/NickleDave}{@NickleDave}). I only
 became aware of \href{https://github.com/vocalpy}{VocalPy}, a project that aims
-to "develop an ecosystem of interoperable packages" for
-"computational vocal communication and learning research" when I had
+to 'develop an ecosystem of interoperable packages' for
+'computational vocal communication and learning research' when I had
 already written most of \texttt{pykanto}, but eventually, I would like to make it
 compatible with it: standardisation is direly needed in the field and I don't
 want to contribute to the chaos.

@@ -78,12 +78,16 @@
 \input{chapters/thanks}
 
 % Table of contents, list of figures/tables 
-\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+%\clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
+\chapter*{Outputs}
+\input{frontmatter/ms_status.tex}
 \bgroup
 \hypersetup{linkcolor = black}
 % add 3cm before the start
 \tableofcontents
 %\authorlist
+\renewcommand{\cleardoublepage}{}
+\renewcommand{\clearpage}{}
 \listoffigures
 %\listoftables % there's just two tables really, so I don't think it's worth it
 \egroup
@@ -91,7 +95,7 @@
 % Abstract
 \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
 \onecolumn
-\vspace*{4cm} % add vertical space
+\vspace*{3cm} % add vertical space
 
 \begin{flushright}
 {\titlefont\Large{cultural evolution in the wild:}}\\
@@ -156,6 +160,12 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % % Chapter 2: Pykanto =================================
 
+% add a completely empty page before chapter 2
+\newpage 
+\thispagestyle{empty}
+\ % The empty page
+\newpage
+
 % Add empty left page before chapter
 \includepdf{figures/chapter_2/code-cover.jpg}
 
@@ -197,18 +207,23 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % Chapter 3: dataset =================
 
+\newpage 
+\thispagestyle{empty}
+\ % The empty page
+\newpage
 
+% Add empty left page before chapter
 \thispagestyle{empty}
 \newpagecolor{chapterback}
 \onecolumn 
 \normalsize
- \vspace*{3cm} % Add vertical space
+ \vspace*{14cm} % Add vertical space
 \begin{center}
-    \makebox[\textwidth][c]{\includegraphics[width=0.85\paperwidth]{figures/chapter_3/gretis-illustration.png}}
+    \makebox[\textwidth][c]{\includegraphics[width=0.75\paperwidth]{figures/chapter_4/wytham.png}}
 \end{center}
     \vspace*{\fill}
 \begin{center}
-        \textcolor{gray}{A pair of great tits, singing male.\\Digital Illustration, \href{https://www.instagram.com/tawatha.blog}{Tawatha T. Elguero}, 2022}
+        \textcolor{gray}{3D render Wytham Woods based on first return LiDAR data.\\Made with \href{https://github.com/tylermorganwall/rayshader}{rayshader}; elevation is exaggerated.}
 \end{center}
 \afterpage{\restorepagecolor}
 
@@ -257,18 +272,17 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % % % Chapter 4: The demographic drivers of change in wild bird song culture: ==============
 
-% Add empty left page before chapter
 \thispagestyle{empty}
 \newpagecolor{chapterback}
 \onecolumn 
 \normalsize
- \vspace*{3cm} % Add vertical space
+ \vspace*{5cm} % Add vertical space
 \begin{center}
-    \makebox[\textwidth][c]{\includegraphics[width=0.80\paperwidth]{figures/chapter_3/gretis-illustration.png}}
+    \makebox[\textwidth][c]{\hspace{2.3cm}\includegraphics[width=0.85\paperwidth]{figures/chapter_4/greti-loop.png}}
 \end{center}
     \vspace*{\fill}
 \begin{center}
-        \textcolor{gray}{A pair of great tits, singing male.\\Digital Illustration, \href{https://www.instagram.com/tawatha.blog}{Tawatha T. Elguero}, 2022}
+        \textcolor{gray}{A singing male great tit. Digital Illustration, \href{https://www.instagram.com/tawatha.blog}{Tawatha T. Elguero}, 2022\\In the background: \textsc{2d umap} sliding window trajectories of the repertoire of a single bird.}
 \end{center}
 \afterpage{\restorepagecolor}
 
@@ -296,7 +310,7 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
     } }
 
     \mysummary{
-        \noindent Social learning within communities sometimes leads to behavioural patterns that persist over time, which we know as culture. Examples of culture include learned bird and whale songs, cetacean feeding techniques, and avian and mammalian migratory routes. Shaped by neutral and selective forces, animal cultures evolve dynamically and lead to cultural traditions that differ greatly in their diversity and stability. These cultural traits can influence individual and group survival, population structure, and even inform conservation efforts, underscoring the importance of understanding how other population processes interact with social learning to shape culture. Although the impact of social learning biases and mechanisms has been extensively explored, the role of demographic factors---such as population turnover, immigration, and age structure---on cultural traits has received theoretical attention but rarely empirical investigation in natural populations. Doing so requires very complete trait sampling and detailed individual life history data, which are hard to acquire in combination. To this end, we built a multigenerational dataset containing over 109,000 songs from >400 individuals from a population of great tits (\textit{Parus major}), which we study using a deep metric learning model to reidentify individuals and quantify song similarity. Our findings highlight that demographic variation at the small spatial scales at which learning takes place has the potential to strongly impact the pace and outcome of animal cultural evolution. For example, age distributions skewed towards older individuals are associated with slower cultural change and increased diversity, while higher local population turnover leads to elevated rates of cultural change. Our analyses support theoretical expectations for a key role of demographic processes resulting from individual behaviour in determining cultural evolution, and emphasize that these processes interact with species-specific factors such as the timing of song acquisition. Implications extend to large-scale cultural dynamics and the formation of dialects or traditions.}
+        \noindent Social learning within communities sometimes leads to behavioural patterns that persist over time, which we know as culture. Examples of culture in animals include learned bird and whale songs, cetacean feeding techniques, and avian and mammalian migratory routes. Shaped by neutral and selective forces, animal cultures evolve dynamically and lead to cultural traditions that differ greatly in their diversity and stability. These cultural traits can influence individual and group survival, population structure, and even inform conservation efforts, underscoring the importance of understanding how other population processes interact with social learning to shape culture. Although the impact of social learning biases and mechanisms has been extensively explored, the role of demographic factors---such as population turnover, immigration, and age structure---on cultural traits has received theoretical attention but rarely empirical investigation in natural populations. Doing so requires very complete trait sampling and detailed individual life history data, which are hard to acquire in combination. To this end, we built a multigenerational dataset containing over 109,000 songs from >400 individuals from a population of great tits (\textit{Parus major}), which we study using a deep metric learning model to reidentify individuals and quantify song similarity. Our findings highlight that demographic variation at the small spatial scales at which learning takes place has the potential to strongly impact the pace and outcome of animal cultural evolution. For example, age distributions skewed towards older individuals are associated with slower cultural change and increased diversity, while higher local population turnover leads to elevated rates of cultural change. Our analyses support theoretical expectations for a key role of demographic processes resulting from individual behaviour in determining cultural evolution, and emphasize that these processes interact with species-specific factors such as the timing of song acquisition. Implications extend to large-scale cultural dynamics and the formation of dialects or traditions.}
 
     {\small\textsf{\textbf{Keywords:} animal culture; bird song; demography, cultural evolution}}
 
@@ -315,6 +329,11 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 % END: chapter 4
 
 % Chapter 5: Intervals ==============================
+
+\newpage 
+\thispagestyle{empty}
+\ % The empty page
+\newpage
 
 % Add empty left page before chapter
 \thispagestyle{empty}
@@ -336,10 +355,10 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 
 % \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter
 \fancyhead[RO]{\sffamily\color{black50}Merino Recalde \textit{et al}., 2023\hspace{2em}\thepage}
-\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}Melodic and rhythmic structure in bird song}
+\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}Melodic and rhythmic biases in great tit songs}
 \onecolumn % start one-column layout for chatper 4
 
-    \chapter{The melodic and rhythmic structure of great tit song}
+    \chapter{Melodic and rhythmic biases anchor cultural variation in great tit songs}
     \label{chapter:5}
     \vspace{10pt}
     \thispagestyle{empty}  % remove page number 
@@ -354,7 +373,7 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
     } }
 
     \mysummary{
-        \noindent Social learning within communities sometimes leads to behavioural patterns that persist over time, which we know as culture. Examples of culture include learned bird and whale songs, cetacean feeding techniques, and avian and mammalian migratory routes. Shaped by neutral and selective forces, animal cultures evolve dynamically and lead to cultural traditions that differ greatly in their diversity and stability. These cultural traits can influence individual and group survival, population structure, and even inform conservation efforts, underscoring the importance of understanding how other population processes interact with social learning to shape culture. Although the impact of social learning biases and mechanisms has been extensively explored, the role of demographic factors---such as population turnover, immigration, and age structure---on cultural traits has received theoretical attention but rarely empirical investigation in natural populations. Doing so requires very complete trait sampling and detailed individual life history data, which are hard to acquire in combination. To this end, we built a multigenerational dataset containing over 109,000 songs from >400 individuals from a population of Great Birds (\textit{Parus major}), which we study using a deep metric learning model to reidentify individuals and quantify song similarity. Our findings highlight that demographic variation at the small spatial scales at which learning takes place has the potential to strongly impact the pace and outcome of animal cultural evolution. For example, age distributions skewed towards older individuals are associated with slower cultural change and increased diversity, while higher local population turnover leads to elevated rates of cultural change. Our analyses support theoretical expectations for a key role of demographic processes resulting from individual behaviour in determining cultural evolution, and emphasize that these processes interact with species-specific factors such as the timing of song acquisition. Implications extend to large-scale cultural dynamics and the formation of dialects or traditions.}
+        \noindent Human and avian song traditions are not static; they evolve culturally. When melodies are passed from one individual to another, be it a person or a bird, they are shaped in non-random ways by the inherent biases of learners and their interactions. If biases are shared among individuals, this process can serve to stabilise variation. For instance, while human songs exhibit considerable cross-cultural diversity in the organisation of pitch and rhythm, some melodic and rhythmic patterns emerge repeatedly, and these facilitate accurate learning and transmission. Despite their many differences, both human and bird songs rely on vocal production and a process of cultural transmission, which suggests that a comparable process might also occur in bird songs. This study presents preliminary evidence that the acoustically simple yet highly diverse songs of great tits are also underpinned by non-random rhythmic and melodic structures. Interestingly, the parallels extend further: these structures share some common characteristics with human songs, such as the use of a limited number of melodic interval categories, small interval sizes, and isochronic, categorical rhythms. Our findings suggest that i) biases associated with vocal learning and performance can give rise to similar structural patterns across different species, and ii) strong melodic and rhythmic biases may serve to stabilise song cultures, even in the face of high turnover.}
 
     {\small\textsf{\textbf{Keywords:} animal culture; bird song; demography, cultural evolution}}
 
@@ -366,13 +385,51 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 \end{multicols} % end one-column layout
 
 \onecolumn % start one-column layout for chatper 4 - supplementary
-%\input{chapters/chapter_3_supp}
 
 
 % Chapter 6: Conclusions ==============================
 
+\newpage 
+\thispagestyle{empty}
+\ % The empty page
+\newpage
 
-% back 
+% Add empty left page before chapter
+\thispagestyle{empty}
+\newpagecolor{chapterback}
+\onecolumn 
+\normalsize
+ \vspace*{5.9cm} % Add vertical space
+\afterpage{\restorepagecolor}
+
+
+% Chapter proper
+\fancyhead[RO]{\sffamily\color{black50}Merino Recalde, 2023\hspace{2em}\thepage}
+\fancyhead[LE]{\sffamily\color{black50}\thepage\hspace{2em}General discussion}
+% \clearpage{\pagestyle{empty}\cleardoublepage} % empty page before chapter %TODO: include fancy head in the empty page before chapter
+\onecolumn % start one-column layout for chatper 4
+
+    \chapter{General discussion}
+    \label{chapter:6}
+    \vspace{10pt}
+    \thispagestyle{empty}  % remove page number 
+
+    % \begin{chapquote}{Werner Herzog, \textit{Burden of Dreams (1982)}}
+    %     [T]he birds are in misery. I don't think they---they sing, they just screech in pain. 
+    % \end{chapquote}
+
+    \vspace{1cm}
+
+% Begin chapter proper
+\begin{multicols}{2} % start one-column layout
+    \input{chapters/chapter_6}
+    \end{multicols} % end one-column layout
+    \onecolumn % start one-column layout for chatper 4 - 
+
+
+
+
+% last page ===========================================
 
 \thispagestyle{empty}
 \newpagecolor{chapterback}
@@ -382,7 +439,7 @@ Thesis advisors: Prof Ben C. Sheldon and Dr Ella F. Cole\\
 \begin{center}
     \makebox[\textwidth][c]{\hspace{1cm}\includegraphics[width=0.40\paperwidth]{figures/nonchapter/bird-hawthorn.png}}
     \\[2cm]
-\parbox{200pt}{\lettrine[lines=2,slope=0pt, nindent=5pt]\textcolor{gray}{Singing great tit male perched on a hawthorn in bloom. Vector Illustration. This thesis was typeset using \LaTeX, developed by Leslie Lamport based on Donald Knuth's \TeX. By Nilo Merino Recalde, 2023}}
+\parbox{200pt}{\color{lightgray} \lettrine[lines=2]Singing great tit male perched on a hawthorn in bloom. Vector Illustration. This thesis was typeset using \LaTeX, developed by Leslie Lamport based on Donald Knuth's \TeX. By Nilo Merino Recalde, 2023}
 \end{center}
 
 \end{document} 

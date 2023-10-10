@@ -39,6 +39,9 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{url}
 \RequirePackage[colorlinks=true, allcolors=hypercolor]{hyperref}
+\addto\extrasenglish{%
+  \def\chapterautorefname{Chapter}%
+}
 
 \usepackage{gensymb} % for degree symbol
 
@@ -167,6 +170,7 @@ tablewithin=chapter]{caption}
 \usepackage[
 backend=biber,
 style=apa,
+uniquename=false,
 refsection=chapter
 ]{biblatex}
 \usepackage{csquotes}
@@ -709,7 +713,7 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 	\newpage
 	\thispagestyle{empty}
 	\vspace*{\fill}
-	\scshape \noindent \small \copyright \small \hspace{3pt}2023\hspace{3pt}-- Nilo Merino Recalde\\
+	\scshape \noindent \small CC BY 4.0 \small \hspace{3pt}2023\hspace{3pt}-- Nilo Merino Recalde\\
 	\vspace*{\fill}
 	\newpage
 	\rm
@@ -739,3 +743,6 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 
 % Change color of page before chapter
 \usepackage{pdfpages}
+
+\usepackage{adforn}
+
