@@ -37,6 +37,12 @@
 *.nls
 *.out
 *.pdf
+
+# track everything in the figures directory and its subdirectories, even if it is pdf or jpg or png
+!figures/**/*
+
+
+
 *.pyg
 *.run.xml
 *.snm
