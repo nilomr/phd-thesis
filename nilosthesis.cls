@@ -264,10 +264,13 @@ refsection=chapter
 %\renewcommand{\thesubsection}{\Alph{subsection}}
 
 
+\newif\ifchapternumber
+\chapternumbertrue % Uncomment this line to add chapter number
+
 \titleformat{\chapter}
   {\raggedleft\titlefont}
-  {}
-  {0em}
+  {\ifchapternumber \thechapter.\ \fi}
+  {0.1em}
   {#1}
   []
 
