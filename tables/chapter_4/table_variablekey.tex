@@ -1,0 +1,40 @@
+\begin{longtblr}[
+    theme=ntabs,
+    caption = {Model variable key}, % Table caption
+    label = {table:variable_key} % Label for cross-referencing
+  ]{
+    colspec = {X[l] X[6,l]}, % Define column specification
+    column{1}={colsep=15pt},
+    rowhead=1,
+    row{odd} = {tablegrey}, % Shading for odd rows
+    cells = {font = \fontsize{8pt}{8pt}\selectfont},
+    row{1} = {tableheadgrey, font=\fontsize{8pt}{8pt}\selectfont\bfseries} % First row is bold
+  }
+  
+  Variable & Description \\
+  
+  repertoire\_size & Number of distinct song types sung by an individual \\
+  immigrant & Immigrant status (hatched in the population / not hatched in the population)  \\
+  sampling\_effort & Total number of recordings obtained for this individual \\
+  year & Year in which the repertoire was recorded \\
+  father & ID of the male; BTO (British Trust for Ornithology) ring number \\
+  dispersal\_distance & Postnatal dispersal distance, in metres, from the natal nest box to the breeding nest box \\
+  age & The age of the bird. This is exact if the bird was ringed as a pullus in the population, or approximate (based on plumage moult) otherwise \\
+  average\_frequency & The mean of the frequency of each song in a bird's repertoire in a given year \\
+  mean\_dist1 & Average minimum Euclidean distance between the repertoires of two birds \\
+  natal\_distance & Distance in metres at which two birds were born \\
+  nest\_distance & Distance in metres at which two birds bred \\
+  year\_born\_diff & The absolute difference between the birth years of two birds \\
+  mm(...) & Multi-membership grouping term for the similarity network \\
+  resident\_status & Origin of a pair of birds: both, one or neither were hatched in the population \\
+  prop\_immigrant & Proportion of  the birds in a neighbourhood that were not hatched inside the population \\
+  mean\_dispersal\_\allowbreak distance & Mean postnatal dispersal distance, in metres, of the birds in the neighbourhood\\
+  prop\_same\_birds &  Proportion of the birds in a neighbourhood that were already there the year before \\
+  mean\_age & Mean age of the birds in a neighbourhood \\
+  n\_current\_songs & Absolute number of song types in a neighbourhood (not unique song types), which correlates with neighbourhood size but we use to further adjust for the fact that some birds sing more songs \\
+  gp(x, y) & 2D Gaussian process to model spatial dependency in the data  \\
+  n\_unique\_\allowbreak current\_songs & Number of unique song types in a neighbourhood \\
+  uniqueness &  The uniqueness of a bird's repertoire, quantified as 1 minus the logarithm of the mean frequency of the songs in its repertoire for a given year  \\
+  recorded & Number of birds recorded singing in a neighbourhood, which is linearly correlated with neighbourhood size \\
+  prop\_shared & Proportion of the song types in a neighbourhood that were already present. Reported as 1- prop\_shared: 'song turnover'\\
+  \end{longtblr}

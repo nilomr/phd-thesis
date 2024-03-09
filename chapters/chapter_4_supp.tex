@@ -1,18 +1,31 @@
 \supplementarysection
 
+
 \input{tables/chapter_4/table_modelspec}
+\input{tables/chapter_4/table_variablekey}
 \input{tables/chapter_4/table_hypothesis}
 
 
 \begin{figure}[tbp]
     \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_study_site.pdf}
+    \mycaption{Map of the study site and sampling locations}{
+        This study was conducted in Wytham Woods, a 385-hectare semi-natural woodland surrounded by farmland. Data was collected during the breeding seasons of 2020, 2021, and 2022 by regularly checking 1018 nest boxes, documenting information such as breeding pair identities, clutch initiation and hatching dates, clutch size, and fledgling details according to standardized protocols, and recording the songs of the birds in the population using 60 AudioMoth acoustic loggers. The map shows the location of the nest boxes where we recorded song repertoires.
+    }
+    \label{fig:supp_study_site}
+\end{figure}
+
+
+
+\begin{figure}[tbp]
+    \centering
     \includegraphics[width=\linewidth]{figures/chapter_4/supp_neighbourhood_sampling.pdf}
-    \mycaption{Absence of bias in the sampling of neighbourhood properties}{
-        Correlation between the actual neighbourhood properties and neighbourhood properties estimated from birds for which we have song recordings.
-    (A) Neighbourhood size (number of individuals) and number of individuals with song recordings.
-    (B) Proportion of resident birds from monitoring data and only those birds with song recordings.
-    (C) Mean dispersal distance calculated from birds born in the study site and only those birds born in the study site with song recordings.
-    (D) Mean age of birds in the study site and only those birds with song recordings.
+    \mycaption{Demographic characteristics of recorded birds compared to those of all birds in the neighbourhood}{
+        Comparison between the actual neighbourhood properties and neighbourhood properties estimated from birds for which we have song recordings.
+    (A) Neighbourhood size (number of individuals) and number of individuals for which we have song recordings in that same neighbourhood.
+    (B) Proportion of resident birds calculated from monitoring data and only from those birds with song recordings. Residents are birds that were ringed as nestlings in the population.
+    (C) Mean dispersal distance of the birds in a neighbourhood calculated from monitoring data and only from birds with song recordings.
+    (D) Mean age of birds in a neighbourhood calculated from monitoring data and only from birds with song recordings.
     }
     \label{fig:supp_neighbourhood_sampling}
 \end{figure}
@@ -20,10 +33,47 @@
 
 \begin{figure}[tbp]
     \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_demo_variables.pdf}
+    \mycaption{Spatial distribution of the neighbourhood-level predictor variables in the study}{
+    (A) Mean natal dispersal distance, or the mean distance between the natal nest box and the breeding site for all birds in the neighbourhood.
+    (B) Proportion of immigrant birds in the neighbourhood.
+    (C) Mean age of birds in the neighbourhood.
+    (D) Individual turnover, or the proportion of birds that were not already in a neighbourhood in the preceding year.
+    }
+    \label{fig:supp_demo_variables}
+\end{figure}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_song_typle_clusters.pdf}
+    \mycaption{Examples of song type clusters in the study population}
+    {
+Colours and connected lines represent the same song type cluster sung by different birds. Some song types are sung by many birds, while others are unique to a single bird. The clustering process is based on song similarity derived from a deep metric learning model and a manual categorization process following McGregor and Krebs \autocite{mcgregor1982b}.
+    }
+    \label{fig:supp_song_typle_clusters}
+\end{figure}
+
+
+\begin{figure}[tbp]
+    \centering
     \includegraphics[width=\linewidth]{figures/chapter_4/supp_song_sampling.pdf}
-    \mycaption{Relationships among outcome variables and sampling effects}{
-        (A) Marginal effect of diversity---which describes the proportion of unique songs in a neighbourhood---on novelty, that is, how uncommon, on average, the songs of the birds in a neighbourhood are. These two ways of characterising cultural diversity are (as expected) anti-correlated in our study site due to the effect of sampling: more frequent songs are sampled more readily, causing larger sample sizes (neighbourhoods with more birds and therefore songs) to yield lower average estimates of diversity (C) and higher average estimates of novelty (D), in a nonlinear manner. Once this is adjusted for, diversity and novelty are positively correlated, as expected. (B) Our measure of cultural novelty (y-axis) has the advantages of being continuous and not using an arbitrary cutoff, but is nonetheless correlated with definitions traditionally used in the literature, such as 'songs shared by fewer than 4 birds” \parencite{mcgregor1982b}}
+    \mycaption{Estimates of cultural outcomes depend on the size of the neighbourhood repertoire}
+    {
+        (A) Marginal effect of diversity---which describes the proportion of unique songs in a neighbourhood---on uniqueness, that is, how uncommon, on average, the songs of the birds in a neighbourhood are. These two ways of characterizing cultural diversity are anti-correlated in our study site due to the effect of sampling: more frequent songs are sampled more readily, causing larger sample sizes (neighbourhoods with more birds and therefore songs) to yield lower average estimates of diversity (C) and higher average estimates of uniqueness (D), in a nonlinear manner. Once this is adjusted for, which we do by including GAM terms capturing neighbourhood song density or number of birds, diversity and uniqueness are positively correlated, as expected. (B) Our measure of cultural uniqueness (y-axis) has the advantages of being continuous and not using an arbitrary cut-off, but is nonetheless correlated with definitions traditionally used in the literature, such as 'songs shared by fewer than 4 birds” \autocite{mcgregor1982b}, here on the x-axis.}
     \label{fig:supp_song_sampling}
+\end{figure}
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_cultural_variables.pdf}
+    \mycaption{Spatial distribution of the neighbourhood-level cultural variables in the study}
+    {
+        (A) Relative diversity, or the proportion of unique songs in a neighbourhood.
+        (B) Uniqueness, or how uncommon, on average, the songs of the birds in a neighbourhood are.
+        (C) Rate of song cultural turnover, or the proportion of unique song types in a given year that were not already present in the same neighbourhood the preceding year.
+        As described in \autoref{fig:supp_song_sampling}, (A) and (B) are anti-correlated due to the effect of sampling, but once this is adjusted for, neighbourhoods with more cultural diversity also tend to have more unique songs, as expected.
+        }
+    \label{fig:supp_cultural_variables}
 \end{figure}
 
 \begin{figure}[tbp]
@@ -40,21 +90,30 @@
     \includegraphics[width=\linewidth]{figures/chapter_4/supp_song_frequencies.pdf}
     \mycaption{
         Song frequencies and their relationship with abundance in the following year}{
-        (A) The abundance of a song type in a given year predicts its abundance in the following year, with higher variance around rare songs. (B) Histogram showing the frequency of individual spong types in the study.
+        (A) The abundance of a song type in a given year predicts its abundance in the following year, with higher variance around rare songs. (B) Histogram showing the frequency of individual song types in the study.
     }
     \label{fig:supp_song_frequencies}
 \end{figure}
 
-
 \begin{figure}[tbp]
     \centering
     \includegraphics[width=\linewidth]{figures/chapter_4/supp_absolute_cultural_diversity.pdf}
-    \mycaption{Marginal effects of demographic variables on absolute cultural diversity}{
-        Marginal effects of our predictor variables on absolute cultural diversity (the number of different song types sampled in a neighbourhood), while adjusting for the effect of either number of individuals (higher opacity fill, corresponding to model \textit{div\_m\_2}) or number of song variants, including repeated variants (lower opacity fill, \textit{div\_m\_2.1}). 
+    \mycaption{Effect of demographic variation on absolute cultural diversity within neighbourhoods}{
+        To explore how the number of individuals and their repertoire sizes within a neighbourhood affect the absolute number of different song types (as opposed to the relative diversity reported in \autoref{c4_fig:diversity}), we fit two models: one adjusting for the nonlinear effect of the number of individuals (higher opacity fill, corresponding to model \textit{div\_m\_2}), and a second adjusting for the nonlinear effect of the number of song types, including repeated variants (lower opacity fill, \textit{div\_m\_2.1}). See \autoref{table:model_info} for full model specifications.
     }
     \label{fig:supp_absolute_cultural_diversity}
 \end{figure}
 
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/chapter_4/supp_dispersal_simulation.pdf}
+    \mycaption{Simulation of the effect of natal dispersal on repertoire uniqueness}
+    {
+        We simulate the relationship between pre-breeding bird movement and the uniqueness of songs in their repertoires  (relative to the population). We initialize 200 birds in a 1500 x 1500 square, each capable of singing 4 songs selected from
+        a pool of 200 song types. Birds do not initially move. New birds are born and move based on a log-normal distribution parametrized to represent realistic dispersal behaviour in our population. Each bird can learn the songs it hears within a 200 m radius as it moves. At the end of their movement, a bird's crystallized repertoire is determined by its learning mechanism: (A) random learning of songs, (B) linearly frequency-dependent learning, (C) positively frequency-dependent learning, or (D) learn the most popular songs (strong conformism). The simulation is repeated $n$ times per learning strategy, and we record the average uniqueness of songs in each bird's repertoire, which is a transformation of the average frequency of the bird's songs, as well as the distance that each bird has moved. The results show that the relationship between dispersal and repertoire uniqueness depends on the learning mechanism, and that the effect of dispersal detected in our study might be expected to arise if being exposed to a larger number of songs influences learning in a nonlinear frequency-dependent manner.
+    }
+    \label{fig:supp_dispersal_simulation}
+\end{figure}
 
 
 \begin{figure}[tbp]
@@ -65,4 +124,3 @@
     }
     \label{fig:supp_pp_checks}
 \end{figure}
-

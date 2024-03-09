@@ -10,7 +10,6 @@
   rowhead=1,
   row{odd} = {tablegrey}, % Shading for odd rows
   cells = {font = \fontsize{8pt}{8pt}\selectfont},
-  rowsep=2pt,
   row{1} = {tableheadgrey, font=\fontsize{8pt}{8pt}\selectfont\bfseries} % First row is bold
 }
 
@@ -35,12 +34,12 @@ age\_m\_1 & mean\_dist1 $\sim$ 0 + natal\_distance + nest\_distance + year\_born
 
 % Cultural Novelty and Diversity
 \SetCell[c=5]{c, white}\textbf{Cultural Novelty and Diversity} \\
-nov\_m\_1 & novelty $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
-div\_m\_1 & diversity $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
-nov\_m\_2 & novelty $\sim$ 0 + diversity + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
-nov\_m\_2.1 & novelty $\sim$ 0 + diversity + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & lognormal & 791 & GP \\
-div\_m\_2 & n\_unique\_current\_songs $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(recorded) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & Gaussian & 791 & GP \\
-div\_m\_2.1 & n\_unique\_current\_songs $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year, k = 25, c = 5/4, scale = F) & Gaussian & 791 & GP \\
+nov\_m\_1 & uniqueness $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year) & lognormal & 791 & GP \\
+div\_m\_1 & diversity $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year) & lognormal & 791 & GP \\
+nov\_m\_2 & uniqueness $\sim$ 0 + diversity + s(n\_current\_songs) + year + gp(x, y, by = year) & lognormal & 791 & GP \\
+nov\_m\_2.1 & uniqueness $\sim$ 0 + diversity + year + gp(x, y, by = year) & lognormal & 791 & GP \\
+div\_m\_2 & n\_unique\_current\_songs $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(recorded) + year + gp(x, y, by = year) & Gaussian & 791 & GP \\
+div\_m\_2.1 & n\_unique\_current\_songs $\sim$ 0 + prop\_immigrant + mean\_dispersal\_distance + prop\_same\_birds + mean\_age + s(n\_current\_songs) + year + gp(x, y, by = year) & Gaussian & 791 & GP \\
 
 % Cultural Turnover
 \SetCell[c=5]{c, white}\textbf{Cultural Turnover} \\
