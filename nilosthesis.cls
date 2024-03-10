@@ -263,6 +263,12 @@ refsection=chapter
 \RequirePackage[explicit]{titlesec}
 %\renewcommand{\thesubsection}{\Alph{subsection}}
 
+\usepackage[titles]{tocloft} % for table of contents (right align numbers)
+%\renewcommand{\cftfigpresnum}{\hfill} 
+\renewcommand{\cftfigaftersnum}{ \ \ }
+\renewcommand{\cftdotsep}{2} 
+\renewcommand{\cftfigindent}{0em} 
+\addtolength{\cftfignumwidth}{0.5em}
 
 \newif\ifchapternumber
 \chapternumbertrue % Uncomment this line to add chapter number
