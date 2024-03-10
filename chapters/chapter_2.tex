@@ -26,9 +26,7 @@ lachlan2018, sainburg2019}.
 In addition to concerns over the scalability of existing data analysis
 pipelines, there is now a demand for tools that are freely accessible and
 promote transparent, reproducible research. Existing proprietary software, such
-as the widely used Raven Pro \cite[up to \$800,][]{raven2019} and Avisoft-SASLab
-Pro \parencite[up to \$2,835,][]{specht2002} are difficult to reconcile with
-contemporary data science practices that rely on open-source programming
+as the widely used Raven Pro (\cite[up to \$800;][]{raven2019}) and Avisoft-SASLab Pro \parencite[up to \$2,835;][]{specht2002} are difficult to reconcile with contemporary data science practices that rely on open-source programming
 languages such as R \parencite{rcoreteam2021} and Python \parencite{vanrossum1995}.
 There exist some excellent open-source options, such as Luscinia
 \parencite{lachlan2016a}, Sound Analysis Pro \parencite{tchernichovski2000} and the more
@@ -284,13 +282,13 @@ spectrograms using \texttt{pykanto}.
 \begin{figure*}
     \centering
     \includegraphics[width=\linewidth]{figures/chapter_2/fig3.pdf}
-    \mycaption{Partitioning acoustic similarity between and within birds}{(From left to right and top to bottom.) First, we calculate the pairwise similarity between the songs of all birds, which provides a baseline distribution of similarity in the population (1). Then, we compare songs from the same bird in different years (2), find the pair of songs that are most similar across years (3), and compare songs within the same year (4). The probability density estimates in the bottom panel show how pairwise similarities in (3) allow us to re-identify birds across as they do not overlap with any other birds (1).}
+    \mycaption{Partitioning acoustic similarity between and within birds}{(From left to right and top to bottom.) First, we calculate the pairwise similarity between the songs of all birds, which provides a baseline distribution of similarity in the population (1). Then, we compare song types from the same bird in different years (2), find the pair of songs within song types that are most similar across years (3), and compare songs within the same year (4). The probability density estimates in the bottom panel show how pairwise similarities in (3) allow us to re-identify birds across as they do not overlap with any other birds (1).}
     \label{c2_fig:results}
 \end{figure*}
 %%%%%
 
 \subsubsection{Training a convolutional neural network classifier}
-Our goal is to generate compressed representations of songs that can facilitate comparisons and identification of those sung by the same individual, even in the presence of variations in performance and noise. To do this, we can train a model to distinguish between different song types, which are categorically distinct within individual song repertoires, without providing the model with information about who sang them. 
+Our goal is to generate compressed representations of songs that can facilitate comparisons and identification of those sung by the same individual, even in the presence of variations in performance and noise. To do this, we can train a model to distinguish between 44 different song types, which are categorically distinct within individual song repertoires, so that we can try to assign song IDs back to individual birds. This is a small example; see \autoref{chapter:3} and specially \autoref{chapter:4} for a more precise bird re-identification method used on a much larger dataset.
 
 In this example, we use weights from a pre-trained ResNet50 backbone \parencite{he2015} and gradually unfreeze the earlier layers of the network during training. By doing so, we can fine-tune the network to attain better performance in our task, while still benefiting from the weights learned on a much larger dataset \parencite{zhuang2021}. 
 
@@ -302,7 +300,7 @@ Background noise can also bias our analysis. Each bird's acoustic environment is
 
 Once the model is trained, we can assess its ability to classify unseen songs drawn from the held-out dataset, which can reach an accuracy of around 92\%. As described below, most of the remaining 8\% can be attributed to confusion between the same song types sung by the same birds in different years. 
 
-Finally, we can use the model to extract a compressed representation of each song in the entire dataset. This is achieved by passing each song through the trained network and obtaining the output from the last hidden layer. This output consists of a feature vector that captures the most relevant information to distinguish between different types of songs; these feature vectors can then be used to determine whether two songs are very similar. In our case, we do this by taking the inverse of the cosine distance between each pair to build a similarity matrix.
+Finally, we can use the model to extract a compressed representation of each song in the entire dataset. This is achieved by passing each song through the trained network and obtaining the output from the last hidden layer. This output consists of a feature vector that captures the most relevant information to distinguish between different types of songs; these feature vectors can then be used to determine whether two songs are very similar. In our case, we do this by taking the complement of the cosine distance between each pair to build a similarity matrix.
 
 The repository that supports this paper contains a streamlined way of doing this using PyTorch (\citeyear{pytorch2019}) and PyTorch Lightning (\citeyear{pytorchlightning2019}) that can be easily adapted for use with other datasets.
 
@@ -311,17 +309,9 @@ The repository that supports this paper contains a streamlined way of doing this
 
 After calculating the similarity scores between all pairs of songs, we grouped them according to song type, the bird that sang them, and the year they were sung. For each bird in the first year, we identified the individual who sang the song with the highest similarity to any within its repertoire during the following year. We found that we were able to successfully identify the correct bird in all cases, even though the baseline probability was only 2.27\% (1 out of 44 song types). This suggests that we would have been able to re-identify the individuals even if they had not been observed or captured again.
 
-As shown in \autoref{c2_fig:results}, the highest similarity values correspond to
-comparisons of the same song types within years and birds. The similarity
-between the same song types sung by the same bird across different years is
-consistently higher than that between different birds, even when some song types were shared by individuals: this means that individual vocal signatures are
-at least partly maintained across their lifespan.
+As shown in \autoref{c2_fig:results}, the highest similarity values correspond to comparisons of the same song types within years and birds. The similarity between the same song types sung by the same bird across different years is consistently higher than that between different birds, even when some song types were shared by individuals: this means that individual vocal signatures are at least partly maintained across their lifespan.
 
-The conclusions drawn from this analysis are limited by the small size of the
-dataset: including more birds would likely lead to noisier results, as it increases the chances of finding a second bird with even more similar songs. Nonetheless, in
-combination with other information (such as spatial location), they might allow
-high-confidence identification of individuals between years without physical
-capture.
+The conclusions drawn from this analysis are limited by the small size of the dataset: including more birds would likely lead to noisier results, as it increases the chances of finding a second bird with even more similar songs. Nonetheless, in combination with other information (such as spatial location), they might allow high-confidence identification of individuals between years without physical capture.
 
 This example illustrates how \texttt{pykanto} can be used to help address a
 specific research question. The model-based feature vectors used to describe each song
