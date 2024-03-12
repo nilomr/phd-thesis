@@ -3,7 +3,7 @@
 \lettrine[lines=2]Collecting large amounts of acoustic data from wild bird populations has
 traditionally been very difficult. Due to technical limitations, studies have
 often been constrained to tens of individuals and tens, or at best hundreds of
-vocalisations. But this has changed rapidly within the last decade: compact and
+vocalizations. But this has changed rapidly within the last decade: compact and
 economic autonomous recording units, such as the AudioMoth \parencite{hill2019}, now
 make it possible to collect orders of magnitude more data from many more
 individuals at once---and to do so much more cheaply. As a direct consequence,
@@ -14,13 +14,13 @@ labelling of data, which are extremely time-consuming and prone to errors.
 To illustrate this point, as part of our research on a wild population of great
 tits (\textit{Parus major}), we record around 50,000 songs every year, which
 translates to well over half a million discrete acoustic units. Any analysis
-that required finding, labelling, and characterising them, if done manually---as
-is still often the case in wild bird vocalisation research \parencite{beecher2020a,
+that required finding, labelling, and characterizing them, if done manually---as
+it is still often the case in wild bird vocalization research \parencite{beecher2020a,
 demko2018, mclean2020, pipek2018, youngblood2022}---would take a very long time to
 complete. This bottleneck, in turn, severely limits researchers' ability to ask
 questions that require large datasets to answer---such as those about social
 learning, vocal development, large-scale cultural diversity, and the syntactic
-organisation of animal vocalisations \parencite{aplin2019, kollmorgen2020,
+organization of animal vocalizations \parencite{aplin2019, kollmorgen2020,
 lachlan2018, sainburg2019}.
 
 In addition to concerns over the scalability of existing data analysis
@@ -43,7 +43,7 @@ user interfaces limits their flexibility and hinders reproducibility.
 \end{figure*}
 %%%%%
 
-As a response to the need for scalable and open-source tools for vocalisation
+As a response to the need for scalable and open-source tools for vocalization
 data analysis and related issues, the field of bioacoustics has recently started
 to experiment with a new suite of methods based on deep-learning artificial
 neural network architectures, the same that excel at, for example, computer
@@ -51,23 +51,23 @@ vision and speech recognition tasks \parencite{stowell2021}. Segmentation and
 annotation pipelines based on deep neural networks have already been shown to
 work well in laboratory settings, where three conditions hold: i) acoustic data
 have a high signal-to-noise ratio, ii) there are orders of magnitude more
-examples per vocalisation type than there are vocalisation types, and iii)
-vocalisations are produced by relatively few individuals (fewer than ten to a
+examples per vocalization type than there are vocalization types, and iii)
+vocalizations are produced by relatively few individuals (fewer than ten to a
 few tens) that do so in a stereotyped manner \parencite{coffey2019, cohen2022,
 steinfath2021}. Unfortunately, none of these conditions tend to be the case in
 field studies, and this creates a barrier to the adoption of new methods by
 researchers working with natural populations.
 
-This is the context in which I present \texttt{pykanto} (pronounced \textipa{pI·'kænt@U}). This software library was born of three needs, which can be summarised as follows.
+This is the context in which I present \texttt{pykanto} (pronounced \textipa{pI·'kænt@U}). This software library was born of three needs, which can be summarized as follows.
 
 \paragraph{First,} it needed to provide the infrastructure necessary to catalogue,
 explore and label large acoustic datasets collected in often suboptimal field
 conditions.
 
 \paragraph{Second,} it had to serve as a flexible starting point that would allow researchers to perform both traditional analyses (such as extracting hand-picked
-features from the vocalisations) and to use machine learning algorithms to learn
+features from the vocalizations) and to use machine learning algorithms to learn
 low-dimensional representations of the data \parencite{goffinet2021, kollmorgen2020,
-morfi2021, sainburg2020}, train classifiers, or detect vocalisations in unseen
+morfi2021, sainburg2020}, train classifiers, or detect vocalizations in unseen
 recordings \parencite{cohen2022, kahl2021, stowell2014}.
 
 \paragraph{Third,} I wanted to build a tool that was free, open source, followed
@@ -78,7 +78,7 @@ reproducibility and transparency.
 \begin{figure*}[bh!]
     \centering
     \includegraphics[width=\textwidth]{figures/chapter_2/fig2.pdf}
-    \mycaption{General structure of the library: main class and modules}{\texttt{pykanto} is written around a central dataset class, \texttt{KantoData}, which provides methods to segment, visualise and label vocalisations. The library contains six modules with functions and classes to carry out common tasks in animal vocalisation analysis.}
+    \mycaption{General structure of the library: main class and modules}{\texttt{pykanto} is written around a central dataset class, \texttt{KantoData}, which provides methods to segment, visualize and label vocalizations. The library contains six modules with functions and classes to carry out common tasks in animal vocalization analysis.}
     \label{fig:structure}
 \end{figure*}
 %%%%%
@@ -86,14 +86,14 @@ reproducibility and transparency.
 \section{pykanto: Implementation}
 
 \texttt{pykanto} is a software library designed to streamline the process of
-analysing animal vocalisations. It is programmed in Python and offers various
+analysing animal vocalizations. It is programmed in Python and offers various
 modules to assist users in their work (see \autoref{fig:structure}). The central module is
-\texttt{pykanto.dataset}, which serves as a database for vocalisations and
-includes methods to visualise, segment, and label them. The \texttt{pykanto.signal} module provides tools for
+\texttt{pykanto.dataset}, which serves as a database for vocalizations and
+includes methods to visualize, segment, and label them. The \texttt{pykanto.signal} module provides tools for
 signal processing and creating spectrograms, while \texttt{pykanto.parameters}
 contains classes and functions for managing parameters. The web application
 \texttt{pykanto.app} allows users to explore and label large numbers of
-vocalisations (\autoref{fig:app}) and \texttt{pykanto.plot} provides functions for
+vocalizations (\autoref{fig:app}) and \texttt{pykanto.plot} provides functions for
 plotting spectrograms. Finally, \texttt{pykanto.utils} includes parsers, I/O
 tools, custom typing, and general computing functions. The documentation for
 \texttt{pykanto} is available at
@@ -141,16 +141,16 @@ Many of the processes that \texttt{pykanto} carries out are computationally
 intensive, such as calculating spectrograms, performing operations on large
 arrays, and running dimensionality reduction and clustering algorithms.
 High-level, interpreted languages---like R or Python---are notoriously slow: where
-possible, we have optimised performance by both a) translating functions to
-optimised machine code at runtime using Numba \parencite{lam2015} and b)
-parallelising tasks using Ray, a state-of-the-art platform for distributed
+possible, we have optimized performance by both a) translating functions to
+optimized machine code at runtime using Numba \parencite{lam2015} and b)
+parallelizing tasks using Ray, a state-of-the-art platform for distributed
 computing \parencite{moritz2018}. As an example, the \texttt{segment\_into\_units()}
-function can find and segment 20.000 discrete acoustic units in approximately
+function can find and segment 20,000 discrete acoustic units in approximately
 16s on a desktop, 8-core machine; a dataset with over half a million (556.472)
 units takes ~132s on a standard 48-core compute node. If \texttt{pykanto} detects a
 suitable GPU unit and the optional dependencies are installed, algorithms such
 as UMAP \parencite{mcinnes2018} switch to their GPU implementation, which provides a
-15-100x speedup \parencite{nolet2021, raschka2020}. The library has a module
+15-100x speed-up \parencite{nolet2021, raschka2020}. The library has a module
 dedicated to making it easy for users to run their scripts in a high-performance
 computing context (for example, a university compute cluster), and its
 documentation includes examples of configuration and submission scripts.
@@ -161,8 +161,8 @@ This final section discusses some of the main limitations of \texttt{pykanto}. A
 will hopefully offer a flexible solution for researchers, it is also limited in
 important ways.
 
-\paragraph{Limitation 1} Vocalisation unit segmentation via the very simple amplitude
-thresholding algorithm will not work well with species whose vocalisations vary
+\paragraph{Limitation 1} Vocalization unit segmentation via the very simple amplitude
+thresholding algorithm will not work well with species whose vocalizations vary
 greatly in amplitude, or with very noisy datasets. In those cases, and depending
 on data volume,  segmentation might better be performed either manually or in a
 semi-automated way. For example, one could use \textit{chipper}
@@ -170,22 +170,21 @@ semi-automated way. For example, one could use \textit{chipper}
 \parencite{cohen2022} on a manually annotated subset of the data.
 
 \paragraph{Limitation 2} \texttt{pykanto} has been tested on species that produce
-vocalisations made up of a small or moderate number of different but distinct
+vocalizations made up of a small or moderate number of different but distinct
 elements (variously referred to as notes or syllables). It will be useful for
 researchers working with any species, but the automatic part of the clustering
-process will work increasingly poorly with those that have a large number of
-very variable elements. This is true of any clustering method: they will fail or
+process will work increasingly poorly with those that have many, very variable elements. This is true of any clustering method: they will fail or
 produce spurious results if variation in the data is continuous.
 
 \paragraph{Limitation 3} The library does not include methods to train models intended to
-find analysable vocalisations in long recordings of entire soundscapes. This is
+find analysable vocalizations in long recordings of entire soundscapes. This is
 a particularly challenging problem \parencite{priyadarshani2018} without a universal
-solution. However, \texttt{pykanto} can be used to generate and organise the training
+solution. However, \texttt{pykanto} can be used to generate and organize the training
 data required by these models \parencite{kahl2021, stowell2019, stowell2014}, and to
 work with their output annotations.
 
 \paragraph{Limitation 4} \texttt{pykanto} is intended as a flexible solution for managing
-and preparing animal vocalisation data for further analysis. It provides tools
+and preparing animal vocalization data for further analysis. It provides tools
 that can save researchers a great deal of time while making analysis pipelines
 more reproducible. However, it does not implement any specific analysis or
 feature extraction methods, since these will vary greatly by use case. This
@@ -195,7 +194,7 @@ Python.
 
 \section{Using pykanto: can individual birds be identified from their songs?}
 
-I now provide a worked example of how \texttt{pykanto} can be used to help answer real research questions about vocalisations---bird song in this case:
+I now provide a worked example of how \texttt{pykanto} can be used to help answer real research questions about vocalizations---bird song in this case:
 
 \subsection{Introduction}
 
@@ -219,9 +218,9 @@ Our example dataset consists of 5293 songs from 12 males that were known (from
 physical recaptures) to be present in the breeding population in two different
 years, 2020 and 2021. Although this is a small subset of our data, it is large
 enough that it would still take weeks to process and analyse using traditional
-methods. We demonstrate the use of \texttt{pykanto} to a) organise, segment and label the
+methods. We demonstrate the use of \texttt{pykanto} to a) organize, segment and label the
 dataset, and b) prepare it so that we can train a deep neural network to
-recognise the bird's song types. The entire process, which takes under an hour to complete,
+recognize the bird's song types. The entire process, which takes under an hour to complete,
 can be computationally reproduced using its
 \href{https://github.com/nilomr/pykanto-example}{dedicated
 repository}. The repository includes
@@ -229,11 +228,11 @@ raw data, auxiliary scripts and detailed instructions. Below is a short
 narrative description of the process.
 
 \subsection{Data collection}
-Most great tits in our population nest in nest boxes with known locations. Every year, fieldworkers record the identities of breeding males and females, clutch initiation and egg-hatching dates, clutch size, and fledgling success using standardised protocols. A significant number of birds in the population are fitted with a unique British Trust for Ornithology (BTO) metal leg ring as nestlings or adults. During the breeding season (March to June), great tit pairs are socially monogamous and protect territories around their nest boxes \parencite{hinde1952}.
+Most great tits in our population nest in nest boxes with known locations. Every year, fieldworkers record the identities of breeding males and females, clutch initiation and egg-hatching dates, clutch size, and fledgling success using standardized protocols. A significant number of birds in the population are fitted with a unique British Trust for Ornithology (BTO) metal leg ring as nestlings or adults. During the breeding season (March to June), great tit pairs are socially monogamous and protect territories around their nest boxes \parencite{hinde1952}.
 
 We collected data during the breeding seasons of 2020 and 2021, from early April to late May, using a dense sampling design with multiple recorders placed in nest boxes throughout the study site. Fieldworkers checked every nest box in the study site at least once a week before and during egg laying, which can last from one to 14 days \parencite{Perrins1965}. Once a nest box was believed to be in use by a great tit, we placed an autonomous sound recorder in its vicinity, either in the same tree or in a suitable neighbouring tree. We left each recorder in the same location for at least three consecutive days before moving it to a different nest box. Throughout the recording period, we relocated 20 recorders every day.
 
-We used 60 AudioMoth recorders \parencite{hill2019} in 2021 and 30 in 2020, which were housed in waterproof custom-built enclosures. Recording began about an hour before sunrise (from 05:36 to 04:00 UTC during the recording period) and consisted of seven 60-minute recordings with a sample rate of 48 kHz. Since the recording process was automated, there is a possibility that some of the songs recorded in the immediate vicinity of a given nest box do not belong to the focal bird. To reduce the risk of false positives, we discarded recordings with more than one vocalising bird, unless one was distinctly louder than the others. We also discarded all songs with a maximum amplitude below $-16 dB$, calculated as $20\log_{10} \left (\frac{A}{A_{0}}\right )$, with $A = 5000$ and $A_{0} = 32767$ (the maximum value for 16-bit digital audio). This threshold was determined from the observation that, in cases where we had simultaneous recordings of close neighbours from the centres of their respective territories, an amplitude cutoff greater than 4000 always separated a focal bird from its neighbours. It should be noted that these values are not calibrated and are relative to the recording equipment and settings used, as well as other factors such as sound directionality and vegetation cover.
+We used 60 AudioMoth recorders \parencite{hill2019} in 2021 and 30 in 2020, which were housed in waterproof custom-built enclosures. Recording began about an hour before sunrise (from 05:36 to 04:00 UTC during the recording period) and consisted of seven 60-minute recordings with a sample rate of 48 kHz. Since the recording process was automated, there is a possibility that some of the songs recorded in the immediate vicinity of a given nest box do not belong to the focal bird. To reduce the risk of false positives, we discarded recordings with more than one vocalizing bird, unless one was distinctly louder than the others. We also discarded all songs with a maximum amplitude below $-16 dB$, calculated as $20\log_{10} \left (\frac{A}{A_{0}}\right )$, with $A = 5000$ and $A_{0} = 32767$ (the maximum value for 16-bit digital audio). This threshold was determined from the observation that, in cases where we had simultaneous recordings of close neighbours from the centres of their respective territories, an amplitude cut-off greater than 4000 always separated a focal bird from its neighbours. It should be noted that these values are not calibrated and are relative to the recording equipment and settings used, as well as other factors such as sound directionality and vegetation cover.
 
 \subsection{Running the analysis}
 \subsubsection{Installation}
@@ -271,7 +270,7 @@ This can be achieved by using the \texttt{.get\_units()} and \texttt{.cluster\_i
 employ algorithms such as UMAP \parencite{mcinnes2018} and HDBSCAN
 \parencite{mcinnes2017}. Afterwards, we can launch the interactive web app by
 calling \texttt{.open\_label\_app()}. Using this app, we can review the automatic labels
-for up to tens of thousands of vocalisations at once, splitting or combining
+for up to tens of thousands of vocalizations at once, splitting or combining
 clusters as needed. Once completed, we will have a fully annotated dataset, which
 can be divided into training and testing sets and exported as labelled
 spectrograms using \texttt{pykanto}. 
@@ -296,7 +295,7 @@ The distribution of song sample sizes per individual approximately follows a
 power law, so there is a very large amount of data for a few birds and very
 little for most. This imbalance of data is problematic for learning algorithms, as they may develop a bias toward larger classes and perform poorly on rarer ones. There are different ways to deal with this \parencite[see, e.g.,][]{krawczyk2016, thabtah2020}; however, to keep things simple, here we will just undersample majority classes so that all birds have the smallest common sample size for each song type.
 
-Background noise can also bias our analysis. Each bird's acoustic environment is unique, and the network may learn to distinguish between songs based on this noise rather than the signal of interest. To address this issue, we remove most background noise by thresholding the spectrograms, taking advantage of the difference in amplitude between the focal bird singing near the recording and its acoustic background. Additionally, we apply a series of data augmentation techniques during the training process to prevent over-fitting and ensure that the algorithm does not memorise irrelevant or highly variable elements. These techniques include semi-random cropping in the time domain, blurring and sharpening, random erasing of parts of the spectrogram, and contrast and brightness changes. After training the model, we can verify that background noise is not causing bias by checking whether songs recorded in the same location are classified as more similar than expected by chance. In addition, we can create class activation maps to identify the regions of the spectrograms used by the model to generate predictions.
+Background noise can also bias our analysis. Each bird's acoustic environment is unique, and the network may learn to distinguish between songs based on this noise rather than the signal of interest. To address this issue, we remove most background noise by thresholding the spectrograms, taking advantage of the difference in amplitude between the focal bird singing near the recording and its acoustic background. Additionally, we apply a series of data augmentation techniques during the training process to prevent over-fitting and ensure that the algorithm does not memorize irrelevant or highly variable elements. These techniques include semi-random cropping in the time domain, blurring and sharpening, random erasing of parts of the spectrogram, and contrast and brightness changes. After training the model, we can verify that background noise is not causing bias by checking whether songs recorded in the same location are classified as more similar than expected by chance. In addition, we can create class activation maps to identify the regions of the spectrograms used by the model to generate predictions.
 
 Once the model is trained, we can assess its ability to classify unseen songs drawn from the held-out dataset, which can reach an accuracy of around 92\%. As described below, most of the remaining 8\% can be attributed to confusion between the same song types sung by the same birds in different years. 
 
@@ -328,7 +327,7 @@ and as examples in the documentation \parencite{nilo_pykanto_2023}.
 population in Oxford, UK. Recorded by the author and accessible at \href{https://github.com/nilomr/pykanto/tree/main/pykanto/data/segmented/great_tit}{pykanto/data/great\_tit}.
 
 \paragraph{European storm-petrel purr songs} Two males singing from burrows in the Shetland
-and Faroe islands. Source: \href{https://xeno-canto.org/46092}{XC46092} (©
+and Faroe Islands. Source: \href{https://xeno-canto.org/46092}{XC46092} (©
 Dougie Preston), \href{https://xeno-canto.org/663885}{XC663885} (© Simon S.
 Christiansen). Under
 \href{https://creativecommons.org/licenses/by-nc-nd/2.5/}{CC BY-NC-ND 2.5
@@ -380,7 +379,7 @@ became aware of \href{https://github.com/vocalpy}{VocalPy}, a project that aims
 to 'develop an ecosystem of interoperable packages' for
 'computational vocal communication and learning research' when I had
 already written most of \texttt{pykanto}, but eventually, I would like to make it
-compatible with it: standardisation is direly needed in the field and I don't
+compatible with it: standardization is direly needed in the field and I don't
 want to contribute to the chaos.
 
 This work was supported by a Clarendon-Mary Frances Wagley Graduate Scholarship
